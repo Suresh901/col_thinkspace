@@ -1,7 +1,5 @@
 import React from "react";
-import TestimonialSlider from "../slider/TestimonialSlider";
 import { ImQuotesLeft } from "react-icons/im";
-import { ImQuotesRight } from "react-icons/im";
 
 const Testimonial = ({ item, index }) => {
   return (

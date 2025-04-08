@@ -3,7 +3,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Testimonial from "../testimonial/Testimonial";
+import Testimonial from "../../pages/homepage/components/testimonial/Testimonial";
 import Timage from "../../assets/image/aju.png";
 import { ImQuotesLeft } from "react-icons/im";
 

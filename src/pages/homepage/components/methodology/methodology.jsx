@@ -1,5 +1,5 @@
 import React from "react";
-import { MethodologyTab } from "../tab/MethodologyTab";
+import { MethodologyTab } from "../../../../components/tab/MethodologyTab";
 const methodology = () => {
   return (
     <div className="flex flex-col gap-5 md:gap-10">

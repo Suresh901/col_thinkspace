@@ -15,7 +15,7 @@ export function ProductDropdown() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button>
-          <div className="border border-3 p-2 rounded-md lg:flex items-center gap-2 cursor-pointer hidden">
+          <div className="border border-3 p-2 rounded-md lg:flex items-center gap-2 cursor-pointer hidden bg-white">
             <BsGrid />
             <h1>Our Products</h1>
             <IoIosArrowDown />

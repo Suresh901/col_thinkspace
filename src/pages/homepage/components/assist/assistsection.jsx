@@ -1,4 +1,4 @@
-import AssistSlider from "../slider/AssistSlider";
+import AssistSlider from "../../../../components/slider/AssistSlider";
 
 const assistsection = () => {
   return (

@@ -1,13 +1,11 @@
-import HeroSection from "../../components/herosection/herosection";
-import AssistSection from "../../components/assist/assistsection";
-import Methodology from "../../components/methodology/methodology";
+import HeroSection from "./components/herosection/herosection";
+import AssistSection from "./components/assist/assistsection";
+import Methodology from "./components/methodology/methodology";
 import Services from "../../components/services/services";
 import Questions from "../../components/questions/Questions";
-import Testimonial from "../../components/testimonial/Testimonial";
 import TestimonialSlider from "../../components/slider/TestimonialSlider";
 import Serve from "../../components/serve/Serve";
 import Request from "../../components/request/Request";
-import Technology from "../../components/technology/Technology";
 
 const homepage = () => {
   return (
