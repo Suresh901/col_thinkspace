@@ -29,7 +29,7 @@ export default {
 				"max-sm": { max: "639px" },
 				"max-xs": { max: "425px" },
 				"max-2xs": { max: "320px" },
-			},
+			}, 
     },
   },
   plugins: [],

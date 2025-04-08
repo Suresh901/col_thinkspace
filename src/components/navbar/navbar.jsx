@@ -2,38 +2,31 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ProductDropdown } from "../dropdown/ProductDropdown";
 import { HamDropdown } from "../dropdown/HamDropdown";
+import Modal from "../modal/modal";
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [isAtTop, setIsAtTop] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY === 0) {
-        setIsAtTop(true);
-      } else {
-        setIsAtTop(false);
-      }
-
-      if (window.scrollY > lastScrollY) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-
-      setLastScrollY(window.scrollY);
+      setIsAtTop(window.scrollY === 0);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <div
       className={`sticky top-0 left-0 w-full z-10 transition-transform duration-300 ease-in-out 
       ${isVisible ? "translate-y-0" : "-translate-y-full"}
-      ${isAtTop ? "bg-transparent" : "bg-white shadow-md"} `}
+      ${isAtTop ? "bg-transparent" : "bg-white shadow-md"} 
+      `}
     >
       <div className="flex justify-between items-center py-4 px-4 md:px-12 mx-auto max-w-[1500px]">
         {/* Logo Section */}
@@ -47,7 +40,7 @@ const Navbar = () => {
 
         {/* Navigation Links for Large Screens */}
         <div className="hidden lg:flex gap-x-5 items-center font-medium text-gray-500">
-          <ul className="flex gap-x-5">
+          <ul className="flex gap-x-10">
             <Link to="/">
               <li>Home</li>
             </Link>
@@ -64,8 +57,13 @@ const Navbar = () => {
               <li>Contact</li>
             </Link>
           </ul>
+        </div>
+        <div className="lg:flex gap-x-5 hidden">
+          <button onClick={openModal}>Build with Us</button>
+
           <ProductDropdown />
         </div>
+        {isModalOpen && <Modal closeModal={closeModal} />}
 
         {/* Hamburger Menu and Dropdowns for Small Screens */}
         <div className="lg:hidden flex items-center gap-4">
