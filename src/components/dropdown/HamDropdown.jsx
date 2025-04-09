@@ -1,6 +1,5 @@
 import * as React from "react";
 
-// import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -12,26 +11,20 @@ import {
 import { RxHamburgerMenu } from "react-icons/rx";
 
 export function HamDropdown() {
-  //   const [showStatusBar, setShowStatusBar] = React.useState < Checked > true;
-  //   const [showActivityBar, setShowActivityBar] =
-  //     React.useState < Checked > false;
-  //   const [showPanel, setShowPanel] = React.useState < Checked > false;
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button>
+        <button className="outline-none">
           <RxHamburgerMenu />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-auto mt-2 bg-white z-10">
-        {/* <DropdownMenuLabel>Appearance</DropdownMenuLabel> */}
         <DropdownMenuSeparator />
         <DropdownMenuItem>Home</DropdownMenuItem>
         <DropdownMenuItem>About Us</DropdownMenuItem>
-        <DropdownMenuItem>Our Team</DropdownMenuItem>
-        <DropdownMenuItem>Build With Us</DropdownMenuItem>
+        <DropdownMenuItem>Build Up</DropdownMenuItem>
         <DropdownMenuItem>Sandbox</DropdownMenuItem>
+        <DropdownMenuItem>Contact</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

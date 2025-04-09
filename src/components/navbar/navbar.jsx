@@ -48,7 +48,7 @@ const Navbar = () => {
               <li>About Us</li>
             </Link>
             <Link to="/build">
-              <li>Build with Us</li>
+              <li>Build Up</li>
             </Link>
             <Link to="/sandbox">
               <li>Sandbox</li>
@@ -59,16 +59,29 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="lg:flex gap-x-5 hidden">
-          <button onClick={openModal}>Build with Us</button>
+          <button
+            onClick={openModal}
+            className={`border p-2 rounded-md ${
+              isAtTop ? "bg-white" : "bg-[#f6f6f6] shadow-md"
+            }`}
+          >
+            Join Our Journey
+          </button>
 
-          <ProductDropdown />
+          <ProductDropdown isAtTop={isAtTop} />
         </div>
         {isModalOpen && <Modal closeModal={closeModal} />}
 
         {/* Hamburger Menu and Dropdowns for Small Screens */}
-        <div className="lg:hidden flex items-center gap-4">
-          <HamDropdown />
+        <div className="lg:hidden flex items-center gap-2 sm:gap-3 md:gap-5">
+          <button
+            onClick={openModal}
+            className={`border p-2 rounded-md bg-white flex gap-2`}
+          >
+            Join <span className="hidden sm:block"> Our Journey</span>
+          </button>
           <ProductDropdown />
+          <HamDropdown />
         </div>
       </div>
     </div>
