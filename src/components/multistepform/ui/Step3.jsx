@@ -16,24 +16,33 @@ const inputData = {
 const Step3 = ({
   nextStep,
   prevStep,
-  setSelectedOption,
+  handleValueChange,
   error,
-  selectedOption,
+  currentValue,
   setError,
 }) => {
+  const handleNext = () => {
+    if (!currentValue) {
+      setError("Please select an option");
+      return;
+    }
+    nextStep();
+  };
+
   return (
     <div className="flex flex-col gap-5">
       <InputField
-        setSelectedOption={setSelectedOption}
+        setSelectedOption={handleValueChange}
         error={error}
-        selectedOption={selectedOption}
+        selectedOption={currentValue}
         inputData={inputData}
       />
       <Button
         nextStep={nextStep}
         prevStep={prevStep}
-        selectedOption={selectedOption}
+        selectedOption={currentValue}
         setError={setError}
+        mode="option"
         name="Next"
       />
     </div>

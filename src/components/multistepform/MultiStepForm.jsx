@@ -4,15 +4,29 @@ import StepsManager from "./components/StepsManager";
 
 const MultiStepForm = ({ closeModal }) => {
   const [step, setStep] = useState(1);
-  const [selectedOption, setSelectedOption] = useState("");
+  // const [selectedOption, setSelectedOption] = useState("");
+  const [formData, setFormData] = useState({});
   const [error, setError] = useState("");
 
-  const nextStep = () => setStep(step + 1);
-  const prevStep = () => setStep(step - 1);
+  const nextStep = () => {
+    setStep(step + 1);
+    setError("");
+  };
+  const prevStep = () => {
+    setStep(step - 1);
+    setError("");
+  };
 
-  const handleOption = () => {
-    setSelectedOption(""); // Reset here
-    nextStep();
+  // const handleOption = () => {
+  //   setSelectedOption(""); // Reset here
+  //   nextStep();
+  // };
+
+  const updateFormData = (stepNumber, value) => {
+    setFormData((prev) => ({
+      ...prev,
+      [stepNumber]: value,
+    }));
   };
 
   const totalSteps = 7;
@@ -41,12 +55,11 @@ const MultiStepForm = ({ closeModal }) => {
           step={step}
           nextStep={nextStep}
           prevStep={prevStep}
-          selectedOption={selectedOption}
-          setSelectedOption={setSelectedOption}
           error={error}
           setError={setError}
-          handleOption={handleOption}
+          updateFormData={updateFormData}
           closeModal={closeModal}
+          formData={formData}
         />
       </div>
     </div>

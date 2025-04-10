@@ -11,76 +11,37 @@ const StepsManager = ({
   prevStep,
   error,
   setError,
-  selectedOption,
-  setSelectedOption,
   step,
-  handleOption,
+  updateFormData,
   closeModal,
+  formData,
 }) => {
-  const steps = {
-    1: <Step1 nextStep={nextStep} />,
-    2: (
-      <Step2
-        nextStep={handleOption}
-        prevStep={prevStep}
-        error={error}
-        setError={setError}
-        selectedOption={selectedOption}
-        setSelectedOption={setSelectedOption}
-      />
-    ),
-    3: (
-      <Step3
-        nextStep={handleOption}
-        prevStep={prevStep}
-        setSelectedOption={setSelectedOption}
-        error={error}
-        setError={setError}
-        selectedOption={selectedOption}
-      />
-    ),
-    4: (
-      <Step4
-        nextStep={handleOption}
-        prevStep={prevStep}
-        setSelectedOption={setSelectedOption}
-        error={error}
-        setError={setError}
-        selectedOption={selectedOption}
-      />
-    ),
-    5: (
-      <Step5
-        nextStep={handleOption}
-        prevStep={prevStep}
-        setSelectedOption={setSelectedOption}
-        error={error}
-        setError={setError}
-        selectedOption={selectedOption}
-      />
-    ),
-    6: (
-      <Step6
-        nextStep={handleOption}
-        prevStep={prevStep}
-        setSelectedOption={setSelectedOption}
-        error={error}
-        setError={setError}
-        selectedOption={selectedOption}
-      />
-    ),
-    7: (
-      <Step7
-        nextStep={handleOption}
-        prevStep={prevStep}
-        setSelectedOption={setSelectedOption}
-        error={error}
-        setError={setError}
-        selectedOption={selectedOption}
-        closeModal={closeModal}
-      />
-    ),
+  const currentValue = formData[step] || "";
+
+  const handleValueChange = (value) => {
+    updateFormData(step, value);
   };
+
+  const stepProps = {
+    currentValue,
+    handleValueChange,
+    error,
+    setError,
+    nextStep,
+    prevStep,
+    formData,
+  };
+
+  const steps = {
+    1: <Step1 {...stepProps} />,
+    2: <Step2 {...stepProps} />,
+    3: <Step3 {...stepProps} />,
+    4: <Step4 {...stepProps} />,
+    5: <Step5 {...stepProps} />,
+    6: <Step6 {...stepProps} />,
+    7: <Step7 {...stepProps} closeModal={closeModal} />,
+  };
+
   return steps[step];
 };
 

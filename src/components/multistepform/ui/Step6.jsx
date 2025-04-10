@@ -4,10 +4,10 @@ import Button from "../components/Button";
 const Step6 = ({
   nextStep,
   prevStep,
-  selectedOption,
-  setSelectedOption,
-  setError,
+  handleValueChange,
   error,
+  currentValue,
+  setError,
 }) => {
   return (
     <div className="flex flex-col gap-5">
@@ -29,15 +29,15 @@ const Step6 = ({
           type="number"
           placeholder="Enter Your Number"
           className="border p-2 w-full outline-none"
-          value={selectedOption}
-          onChange={(e) => setSelectedOption(e.target.value)}
+          value={currentValue}
+          onChange={(e) => handleValueChange(e.target.value)}
         />
       </div>
-      {error && <p className="text-red-500 text-sm mt-1">{error}</p>},
+      {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
       <Button
         nextStep={nextStep}
         prevStep={prevStep}
-        selectedOption={selectedOption}
+        selectedOption={currentValue}
         setError={setError}
         mode="number"
         name="Next"

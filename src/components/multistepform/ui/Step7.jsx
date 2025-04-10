@@ -4,10 +4,10 @@ import Button from "../components/Button";
 const Step7 = ({
   nextStep,
   prevStep,
-  setError,
-  selectedOption,
-  setSelectedOption,
+  handleValueChange,
   error,
+  currentValue,
+  setError,
   closeModal,
 }) => {
   const [fullName, setFullName] = useState("");
@@ -59,7 +59,7 @@ const Step7 = ({
       <Button
         nextStep={nextStep}
         prevStep={prevStep}
-        selectedOption={selectedOption}
+        selectedOption={currentValue}
         setError={setError}
         mode="text"
         name="Get A Quote"
