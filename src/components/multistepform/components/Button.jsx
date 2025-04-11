@@ -7,7 +7,7 @@ const Button = ({
   setError,
   mode = "option",
   name,
-  isSubmit = false, // default false
+  isSubmit = false,
 }) => {
   const handleNext = () => {
     if (mode === "number") {
@@ -45,9 +45,9 @@ const Button = ({
       </button>
 
       <button
-        type={isSubmit ? "submit" : "button"} // 👈 Important fix
+        type={isSubmit ? "submit" : "button"} // Important fix
         className="bg-gradient-to-t from-[#2816CA] to-[#B51AEE] text-white px-4 py-2 rounded"
-        onClick={!isSubmit ? handleNext : undefined} // 👈 Avoid double firing if it's submit
+        onClick={!isSubmit ? handleNext : undefined}
       >
         {name}
       </button>

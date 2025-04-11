@@ -7,6 +7,8 @@ const Basic = ({
   handleDownloadPdf,
   isValid,
   dirty,
+  setSelectedFile,
+  selectedFile,
 }) => (
   <div>
     <div className="mb-10 ">
@@ -18,8 +20,8 @@ const Basic = ({
         <h1>
           Your Company Logo <span className="text-red-600">*</span>
         </h1>
-        <Drop />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Drop selectedFile={selectedFile} setSelectedFile={setSelectedFile} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6">
           <div>
             <h1>
               Full Name <span className="text-red-600">*</span>

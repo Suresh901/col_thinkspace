@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
-import BuildForm from "../../components/form/Form";
+import React, { useState, useRef } from "react";
+import BuildForm from "./components/form/Form";
 import { Formik } from "formik";
-import DetailandQr from "../../components/form/DetailandQr";
+import DetailandQr from "./components/form/DetailandQr";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
@@ -15,42 +15,54 @@ const build = () => {
     address: "",
   });
 
-  // useEffect(() => console.log(form), [form]);
-
+  const [selectedFile, setSelectedFile] = useState([]);
   const printRef = React.useRef(null);
 
   const handleDownloadPdf = async () => {
     const element = printRef.current;
     if (!element) {
+      console.error("Print element not found");
       return;
     }
 
-    const canvas = await html2canvas(element, {
-      scale: 2,
-    });
-    const data = canvas.toDataURL("image/png");
+    try {
+      // Set exact A4 dimensions in pixels
+      const a4Width = 595;
+      const a4Height = 842;
 
-    const pdf = new jsPDF({
-      orientation: "portrait",
-      unit: "px",
-      format: "a4",
-    });
+      const canvas = await html2canvas(element, {
+        scale: 2,
+      });
 
-    const imgProperties = pdf.getImageProperties(data);
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = pdf.internal.pageSize.getHeight();
+      // Debug: Show canvas on screen
+      // canvas.style.position = "fixed";
+      // canvas.style.top = "0";
+      // canvas.style.left = "0";
+      // canvas.style.zIndex = "9999";
+      // document.body.appendChild(canvas);
 
-    const imgWidth = pdfWidth - 2 * 20;
-    const imgHeight = (imgProperties.height * imgWidth) / imgProperties.width;
+      const pdf = new jsPDF({
+        orientation: a4Width > a4Height ? "landscape" : "portrait",
+        unit: "px",
+        format: [a4Width, a4Height],
+        hotfixes: ["px_scaling"],
+      });
 
-    // Calculate position to center the content
-    const x = (pdfWidth - imgWidth) / 2; // Center horizontally
-    const y = (pdfHeight - imgHeight) / 2; // Center vertically
+      pdf.addImage(
+        canvas.toDataURL("image/png", 1.0),
+        "PNG",
+        0,
+        0,
+        a4Width,
+        a4Height
+      );
 
-    pdf.addImage(data, "PNG", x, y, imgWidth, imgHeight);
-    pdf.save("YourDetail.pdf");
+      pdf.save("Business_Card.pdf");
+    } catch (error) {
+      console.error("PDF generation failed:", error);
+      alert("Failed to generate PDF. Please check console for details.");
+    }
   };
-
   return (
     <div className="flex flex-col lg:flex-row md:px-12 py-10 px-6 mb-10 relative">
       <div className=" w-full lg:w-1/2  bg-[#f2f2f2] p-4 rounded-lg">
@@ -111,13 +123,25 @@ const build = () => {
               handleDownloadPdf={handleDownloadPdf}
               isValid={isValid}
               dirty={dirty}
+              selectedFile={selectedFile}
+              setSelectedFile={setSelectedFile}
             />
           )}
         </Formik>
       </div>
 
-      <div ref={printRef} className="lg:w-1/2 md:px-12 mt-10 lg:mt-0">
-        <DetailandQr form={form} />
+      <div className="flex flex-col lg:flex-row md:px-5  lg:w-1/2 items-center justify-center">
+        <div
+          ref={printRef}
+          id="print-area"
+          className=" bg-white p-0 m-0  lg:w-[595px] lg:h-[842px] box-border"
+        >
+          <DetailandQr
+            form={form}
+            selectedFile={selectedFile}
+            setSelectedFile={setSelectedFile}
+          />
+        </div>
       </div>
     </div>
   );
