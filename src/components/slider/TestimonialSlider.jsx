@@ -12,30 +12,34 @@ const testimonials = [
     name: "Utsab Pokharel",
     location: "USA",
     texts:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam voluptate deserunt atque...",
+      "Working with ThinkSpace was a game-changer for our team. Their ability to translate our vision into a functional product exceeded expectations. Highly recommend their services!",
   },
   {
     image:
       "https://admin.colthinkspace.com/storage/teams/1735891443_677799f3eccbc.jpg",
     name: "Asmita Tamang",
-    location: "USA",
-    texts: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    location: "Nepal",
+    texts:
+      "From start to finish, the team was responsive, professional, and committed to quality. I appreciated the attention to detail and how they kept us updated at every stage.",
   },
   {
     image:
       "https://admin.colthinkspace.com/storage/teams/1737363742_678e111e59b25.jpg",
     name: "Utsab Shrestha",
-    location: "USA",
-    texts: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    location: "Canada",
+    texts:
+      "ThinkSpace helped us launch a product we’re truly proud of. Their developers are not only skilled but also very collaborative and easy to work with.",
   },
   {
     image:
       "https://admin.colthinkspace.com/storage/teams/1737363742_678e111e59b25.jpg",
-    name: "Utsab Shrestha",
-    location: "USA",
-    texts: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    name: "Aju Maharjan",
+    location: "UK",
+    texts:
+      "They delivered high-quality code on time, every time. The support even after project completion was outstanding. We’ll definitely work with them again.",
   },
 ];
+
 const TestimonialSlider = () => {
   const sliderRef = useRef(null);
   const [hovered, setHovered] = useState(false);
