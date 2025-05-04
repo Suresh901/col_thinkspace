@@ -2,14 +2,33 @@ import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { MdDeleteOutline } from "react-icons/md";
 
-const Drop = ({ selectedFile, setSelectedFile }) => {
-  // const [selectedFile, setSelectedFile] = useState([]);
-  const onDrop = useCallback((files) => {
-    // console.log(files);
-    setSelectedFile(files);
-  });
+const Drop = ({ selectedFile, setSelectedFile, setForm }) => {
+  // const onDrop = useCallback((files) => {
+  //   // console.log(files);
+  //   setSelectedFile(files);
+  // });
+
+  const onDrop = useCallback(
+    (files) => {
+      if (files.length > 0) {
+        const file = files[0];
+        setSelectedFile([file]);
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setForm((prevForm) => ({
+            ...prevForm,
+            logo: reader.result,
+          }));
+        };
+        reader.readAsDataURL(file);
+      }
+    },
+    [setSelectedFile, setForm]
+  );
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
-  console.log(selectedFile);
+
   return (
     <section className="container">
       <div
@@ -31,20 +50,17 @@ const Drop = ({ selectedFile, setSelectedFile }) => {
       </div>
 
       <div>
-        {selectedFile &&
-          selectedFile.length > 0 &&
-          selectedFile.map((item) => {
-            return (
-              <div className="flex items-center justify-between gap-5">
-                <img
-                  src={URL.createObjectURL(item)}
-                  alt=""
-                  className="w-30 h-20"
-                />
-                <MdDeleteOutline size={26} />
-              </div>
-            );
-          })}
+        {selectedFile?.length > 0 &&
+          selectedFile.map((item, idx) => (
+            <div key={idx} className="flex items-center justify-between gap-5">
+              <img
+                src={URL.createObjectURL(item)}
+                alt="logo-preview"
+                className="w-30 h-20"
+              />
+              <MdDeleteOutline size={26} />
+            </div>
+          ))}
       </div>
     </section>
   );

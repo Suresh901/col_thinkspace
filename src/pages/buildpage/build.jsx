@@ -13,7 +13,10 @@ const build = () => {
     contact: "",
     website: "",
     address: "",
+    logo: "",
   });
+
+  // console.log(form);
 
   const [selectedFile, setSelectedFile] = useState([]);
   const printRef = React.useRef(null);
@@ -26,20 +29,12 @@ const build = () => {
     }
 
     try {
-      // Set exact A4 dimensions in pixels
       const a4Width = 595;
       const a4Height = 842;
 
       const canvas = await html2canvas(element, {
         scale: 2,
       });
-
-      // Debug: Show canvas on screen
-      // canvas.style.position = "fixed";
-      // canvas.style.top = "0";
-      // canvas.style.left = "0";
-      // canvas.style.zIndex = "9999";
-      // document.body.appendChild(canvas);
 
       const pdf = new jsPDF({
         orientation: a4Width > a4Height ? "landscape" : "portrait",

@@ -52,6 +52,16 @@ const tasks = [
     title: "Clarity drives insight",
     logo: <LuTelescope size={32} />,
   },
+  {
+    heading: "Build, Refine, deliver",
+    values: "builds",
+    image:
+      "https://colthinkspace.com/_app/immutable/assets/rb_11031.CXcjGWwX.png",
+    description:
+      "We value clear communication, enabling informed decisions that positively impact business outcomes.",
+    title: "Clarity drives insight",
+    logo: <LuTelescope size={32} />,
+  },
 ];
 
 export function MethodologyTab() {
@@ -67,7 +77,7 @@ export function MethodologyTab() {
               <TabsTrigger
                 key={index}
                 value={task.values}
-                className="text-sm text-gray-500 data-[state=active]:text-black data-[state=active]:bg-white p-2"
+                className="text-sm text-gray-500 data-[state=active]:text-black data-[state=active]:bg-white p-2 drop-shadow-md"
               >
                 <div className="w-auto text-md md:text-lg flex flex-col items-center justify-center gap-5 ">
                   {/* {task.logo} */}

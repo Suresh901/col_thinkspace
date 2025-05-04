@@ -51,27 +51,6 @@ const TeamCard = () => {
         </div>;
       })}
     </div>
-
-    // <div>
-    //   <div className="flex flex-col items-center pb-5 px-5">
-    //     <div className=" w-full h-full p-5 z-40">
-    //       <img
-    //         src={item.image}
-    //         alt="img"
-    //         className="h-60 w-full object-cover"
-    //       />
-    //     </div>
-    //     <div className="drop-shadow-lg w-full bg-white mt-[-5rem] flex flex-col items-center justify-end h-[160px] pb-8 rounded-md">
-    //       <div className="flex items-center justify-between gap-10">
-    //         <div>
-    //           <h1>{item.name}</h1>
-    //           <h2>{item.designation}</h2>
-    //         </div>
-    //         {item.logo}
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 
