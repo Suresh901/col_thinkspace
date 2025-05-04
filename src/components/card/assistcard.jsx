@@ -1,15 +1,21 @@
-const assistcard = ({ item, index }) => {
+const AssistCard = ({ item, index }) => {
   return (
-    <div className="flex px-10 gap-5 " key={index}>
-      <div key={item.id} className="p-10 lg:p-20 border-4 rounded-xl">
-        {item.logo}
-        <h1 className="font-bold text-lg md:text-xl">{item.heading}</h1>
-        <div className="mt-5">
-          <p className="text-sm md:text-xl">{item.desc}</p>
+    <div className="flex px-4 sm:px-10 gap-5" key={index}>
+      <div className="p-[2px] rounded-2xl bg-text-gradient w-full max-w-md">
+        <div className="flex flex-col gap-4 p-6 sm:p-10  bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+          <div className="w-20 h-20">
+            <img
+              src={item.logo}
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <h1 className="font-bold text-xl sm:text-2xl">{item.heading}</h1>
+          <p className="text-sm sm:text-base md:text-lg">{item.desc}</p>
         </div>
       </div>
     </div>
   );
 };
 
-export default assistcard;
+export default AssistCard;

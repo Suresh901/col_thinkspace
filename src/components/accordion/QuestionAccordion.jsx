@@ -49,7 +49,9 @@ const QuestionAccordion = () => {
       <Accordion type="single" collapsible className="w-full">
         {faqAccordion.map((item, index) => (
           <AccordionItem value={item.value}>
-            <AccordionTrigger>{item.question}</AccordionTrigger>
+            <AccordionTrigger className="break-words break-all text-left w-full">
+              {item.question}
+            </AccordionTrigger>
             <AccordionContent>{item.answer}</AccordionContent>
           </AccordionItem>
         ))}

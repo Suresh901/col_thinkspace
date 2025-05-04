@@ -21,7 +21,7 @@ const Serve = () => {
           "url('https://gaviaspreview.com/wp/gowilds/wp-content/uploads/2023/02/bg-02.jpg' ) ",
         width: "full",
       }}
-      className="bg-fixed py-20 text-white mb-20"
+      className="bg-fixed py-20 text-white my-10"
     >
       <div className="flex flex-col items-center gap-5">
         <h1 className="text-xl md:text-2xl font-bold">Who We Serve</h1>

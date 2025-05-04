@@ -4,8 +4,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Testimonial from "../../pages/homepage/components/testimonial/Testimonial";
-import Timage from "../../assets/image/aju.png";
-import { ImQuotesLeft } from "react-icons/im";
 
 const testimonials = [
   {
@@ -14,69 +12,60 @@ const testimonials = [
     name: "Utsab Pokharel",
     location: "USA",
     texts:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam voluptate deserunt atque, dolore praesentium cum amet explicabo dolor porro eligendi ipsa possimus et in est officiis sint ex sapiente quia suscipit nobis nesciunt exercitationem. Impedit, accusamus deleniti, aliquid ea fugiat beatae quos earum vero voluptate officiis odio aperiam. Exercitationem, nam!",
-  },
-  {
-    image: Timage,
-    name: "Aju Maharjan",
-    location: "USA",
-    texts:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam voluptate deserunt atque, dolore praesentium cum amet explicabo dolor porro eligendi ipsa possimus et in est officiis sint ex sapiente quia suscipit nobis nesciunt exercitationem. Impedit, accusamus deleniti, aliquid ea fugiat beatae quos earum vero voluptate officiis odio aperiam. Exercitationem, nam!",
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam voluptate deserunt atque...",
   },
   {
     image:
       "https://admin.colthinkspace.com/storage/teams/1735891443_677799f3eccbc.jpg",
     name: "Asmita Tamang",
     location: "USA",
-    texts:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    image:
-      "https://admin.colthinkspace.com/storage/teams/1735888154_67778d1a1d4b2.jpg",
-    name: "Utsab Pokharel",
-    location: "USA",
-    texts:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    texts: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
   },
   {
     image:
       "https://admin.colthinkspace.com/storage/teams/1737363742_678e111e59b25.jpg",
     name: "Utsab Shrestha",
     location: "USA",
-    texts:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+    texts: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+  },
+  {
+    image:
+      "https://admin.colthinkspace.com/storage/teams/1737363742_678e111e59b25.jpg",
+    name: "Utsab Shrestha",
+    location: "USA",
+    texts: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
   },
 ];
 const TestimonialSlider = () => {
   const sliderRef = useRef(null);
   const [hovered, setHovered] = useState(false);
+
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
     autoplay: true,
-    speed: 1000,
+    centerMode: true,
+    autoplaySpeed: 4000,
     pauseOnHover: true,
-    nextArrow: <></>,
-    prevArrow: <></>,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 4,
+    initialSlide: 0,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 3,
+          slidesToScroll: 3,
           infinite: true,
-          dots: false,
+          dots: true,
         },
       },
-
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
           initialSlide: 2,
         },
       },
@@ -89,40 +78,47 @@ const TestimonialSlider = () => {
       },
     ],
   };
-
   const handlePrevClick = () => {
-    sliderRef.current.slickPrev();
+    sliderRef.current?.slickPrev();
   };
 
   const handleNextClick = () => {
-    sliderRef.current.slickNext();
+    sliderRef.current?.slickNext();
   };
 
   return (
     <div
-      className=" relative my-10 md:px-12"
+      className="relative max-w-6xl mx-auto overflow-hidden my-10"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <h1 className="text-3xl font-bold mb-10 text-center ">Our Testimonial</h1>
+      <h1 className="text-3xl font-bold  text-center py-10 ">
+        Our Testimonial
+      </h1>
       <Slider ref={sliderRef} {...settings}>
-        {testimonials.map((item, index) => {
-          return <Testimonial item={item} index={index} />;
-        })}
+        {testimonials.map((item, index) => (
+          <div className=" my-5 md:my-10 ">
+            <Testimonial item={item} index={index} />
+          </div>
+        ))}
       </Slider>
       <div
-        className={`transition-opacity duration-300 ${
-          hovered ? "opacity-100" : "opacity-0"
+        className={`flex justify-between items-center absolute top-1/2 w-full px-4 transform -translate-y-1/2 transition-opacity duration-300 ${
+          hovered ? "opacity-100" : "opacity-30"
         }`}
       >
-        <FaAngleLeft
-          className="h-6 w-6 cursor-pointer absolute top-[20rem] left-0 drop-shadow-xl bg-white rounded-md"
+        <button
           onClick={handlePrevClick}
-        />
-        <FaAngleRight
-          className="h-6 w-6 cursor-pointer absolute top-[20rem] right-0 shadow-xl bg-white rounded-md"
+          className="p-1 sm:p-2 bg-white/80 hover:bg-white rounded-full shadow-lg focus:outline-none transition-all absolute left-0"
+        >
+          <FaAngleLeft className="h-5 w-5 sm:h-8 sm:w-8 text-gray-800" />
+        </button>
+        <button
           onClick={handleNextClick}
-        />
+          className="p-1 sm:p-2 bg-white/80 hover:bg-white rounded-full shadow-lg focus:outline-none transition-all absolute right-0"
+        >
+          <FaAngleRight className="h-5 w-5 sm:h-8 sm:w-8 text-gray-800" />
+        </button>
       </div>
     </div>
   );

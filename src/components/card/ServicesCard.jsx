@@ -17,6 +17,7 @@ export const datas = [
       item8: "Custom Web Applications",
       item9: "API Integrations",
       item10: "Website Maintenance",
+      item11: "Website Maintenance",
     },
   },
   {
@@ -117,24 +118,36 @@ const ServicesCard = () => {
   return (
     <>
       {datas.map((data, index) => (
-        <Link to={`/services/${data.heading}`}>
+        <Link key={index} to={`/services/${data.heading}`}>
           <div
-            className="border border-gray-400 p-5 md:p-10 transition-transform duration-300 
-        hover:scale-105 hover:bg-gradient-to-t from-[#2816CA] to-[#B51AEE] hover:text-white 
-        flex flex-col gap-5 shadow-lg "
+            className="bg-white min-h-[400px] h-full border border-gray-400 p-6 rounded-2xl 
+              shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 
+              flex flex-col"
           >
-            <img src={data.image} alt="" className="w-20 h-20" />
-            <h1 className="text-xl font-bold">{data.heading}</h1>
+            {/* Header section */}
+            <div className="flex flex-col items-start gap-4">
+              <div className="rounded-full w-20 h-20 overflow-hidden border-2 border-gray-300">
+                <img
+                  src={data.image}
+                  alt={data.heading}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h2 className="text-lg font-semibold text-center text-gray-800">
+                {data.heading}
+              </h2>
+            </div>
 
-            <div className="flex flex-wrap gap-2">
+            {/* Tasks list */}
+            <div className="flex flex-wrap gap-2 mt-4">
               {data.tasks &&
-                Object.values(data.tasks).map((task, index) => (
-                  <h1
-                    key={index}
-                    className="border border-gray-300 p-2 text-sm"
+                Object.values(data.tasks).map((task, idx) => (
+                  <span
+                    key={idx}
+                    className="bg-gray-100 text-gray-700 text-sm px-3 py-2 rounded-xl border border-gray-200"
                   >
                     {task}
-                  </h1>
+                  </span>
                 ))}
             </div>
           </div>

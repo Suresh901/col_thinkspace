@@ -5,111 +5,136 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import AssistCard from "../card/assistcard";
 import { GoLightBulb } from "react-icons/go";
+import image from "../../assets/image/image.png";
 
 const cardDetails = [
   {
     id: 1,
-    heading: "Innovative Solutions",
-    desc: " We’re here to ensure you get exactly what you need—tailored solutions,expert guidance, and ongoing support.",
-    logo: <GoLightBulb size={32} />,
+    heading: "Web Development Development",
+    desc: "We build scalable and robust software solutions tailored to your business needs, from web apps to enterprise systems.",
+    logo: image,
   },
   {
     id: 2,
-    heading: "Innovative Solutions",
-    desc: " We’re here to ensure you get exactly what you need—tailored solutions,expert guidance, and ongoing support.",
-    logo: <GoLightBulb size={32} />,
+    heading: "UI/UX Design",
+    desc: "Our design team delivers intuitive and visually engaging user experiences to enhance customer satisfaction and usability.",
+    logo: image,
   },
   {
     id: 3,
-    heading: "Innovative Solutions",
-    desc: " We’re here to ensure you get exactly what you need—tailored solutions,expert guidance, and ongoing support.",
-    logo: <GoLightBulb size={32} />,
+    heading: "Cloud & DevOps Services",
+    desc: "Accelerate deployment and reduce downtime with our cloud-native infrastructure and DevOps automation strategies.",
+    logo: image,
   },
   {
     id: 4,
-    heading: "Innovative Solutions",
-    desc: " We’re here to ensure you get exactly what you need—tailored solutions,expert guidance, and ongoing support.",
-    logo: <GoLightBulb size={32} />,
+    heading: "Mobile App Development",
+    desc: "We design and develop responsive, high-performance mobile applications for iOS and Android platforms.",
+    logo: image,
+  },
+  {
+    id: 5,
+    heading: "IT Consulting & Support",
+    desc: "Get expert guidance, system audits, and dedicated support to align your tech stack with your long-term business goals.",
+    logo: image,
   },
 ];
 
 const AssistSlider = () => {
   const sliderRef = useRef(null);
   const [hovered, setHovered] = useState(false);
+
   const settings = {
-    dots: false,
+    centerMode: true,
+    centerPadding: "0px",
     infinite: true,
     slidesToShow: 3,
-    slidesToScroll: 1,
     autoplay: true,
     speed: 1000,
+    autoplaySpeed: 4000,
     pauseOnHover: true,
-    nextArrow: <></>,
-    prevArrow: <></>,
+    arrows: false,
+    slidesToScroll: 1,
+    swipeToSlide: true,
+    touchMove: true,
     responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
-        },
-      },
-
-      {
-        breakpoint: 600,
-        settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 2,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
         },
       },
     ],
   };
 
   const handlePrevClick = () => {
-    sliderRef.current.slickPrev();
+    sliderRef.current?.slickPrev();
   };
 
   const handleNextClick = () => {
-    sliderRef.current.slickNext();
+    sliderRef.current?.slickNext();
   };
 
   return (
     <div
-      className="sm:mx-10  relative "
+      className="relative mx-5 md:mx-10 overflow-hidden"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div>
-        <Slider ref={sliderRef} {...settings}>
-          {cardDetails.map((item,index) => (
-            <AssistCard item={item} index={index} />
-          ))}
-        </Slider>
-      </div>
-      {/* <div
-        className={`transition-opacity duration-300 ${
-          hovered ? "opacity-100" : "opacity-0"
+      {/* Inline CSS for center effect */}
+      <style>{`
+  .slick-slide {
+    transition: all 0.3s ease-in-out;
+    opacity: 0.5; 
+    transform: scale(0.9);
+    z-index: 1;
+    
+  }
+  .slick-center {
+    opacity: 1 !important; /* Active slide */
+    transform: scale(1.05);
+    z-index: 10;
+  }
+`}</style>
+
+      <Slider ref={sliderRef} {...settings}>
+        {cardDetails.map((item, index) => (
+          <div className=" my-5 md:my-10 ">
+            <AssistCard key={item.id + "-" + index} item={item} index={index} />
+          </div>
+        ))}
+      </Slider>
+
+      <div
+        className={`flex justify-between items-center absolute top-1/2 w-full px-4 transform -translate-y-1/2 transition-opacity duration-300 ${
+          hovered ? "opacity-100" : "opacity-30"
         }`}
       >
-        <FaAngleLeft
-          className="h-6 w-6 cursor-pointer absolute top-[20rem] left-0 drop-shadow-xl bg-white rounded-md"
+        <button
           onClick={handlePrevClick}
-        />
-        <FaAngleRight
-          className="h-6 w-6 cursor-pointer absolute top-[20rem] right-0 shadow-xl bg-white rounded-md"
+          className="p-1 sm:p-2 bg-white/80 hover:bg-white rounded-full shadow-lg focus:outline-none transition-all absolute left-0"
+        >
+          <FaAngleLeft className="h-5 w-5 sm:h-8 sm:w-8 text-gray-800" />
+        </button>
+        <button
           onClick={handleNextClick}
-        />
-      </div> */}
+          className="p-1 sm:p-2 bg-white/80 hover:bg-white rounded-full shadow-lg focus:outline-none transition-all absolute right-0"
+        >
+          <FaAngleRight className="h-5 w-5 sm:h-8 sm:w-8 text-gray-800" />
+        </button>
+      </div>
     </div>
   );
 };
