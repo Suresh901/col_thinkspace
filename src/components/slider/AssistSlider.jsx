@@ -10,7 +10,7 @@ import image from "../../assets/image/image.png";
 const cardDetails = [
   {
     id: 1,
-    heading: "Web Development Development",
+    heading: "Web Development ",
     desc: "We build scalable and robust software solutions tailored to your business needs, from web apps to enterprise systems.",
     logo: image,
   },
@@ -45,12 +45,11 @@ const AssistSlider = () => {
   const [hovered, setHovered] = useState(false);
 
   const settings = {
-    centerMode: true,
-    centerPadding: "0px",
+    centerMode: false,
     infinite: true,
     slidesToShow: 3,
     autoplay: true,
-    speed: 1000,
+    speed: 500,
     autoplaySpeed: 4000,
     pauseOnHover: true,
     arrows: false,
@@ -60,9 +59,7 @@ const AssistSlider = () => {
     responsive: [
       {
         breakpoint: 1280,
-        settings: {
-          slidesToShow: 1,
-        },
+        settings: {},
       },
       {
         breakpoint: 1024,
@@ -72,6 +69,12 @@ const AssistSlider = () => {
       },
       {
         breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 480,
         settings: {
           slidesToShow: 1,
         },
@@ -95,15 +98,9 @@ const AssistSlider = () => {
     >
       {/* Inline CSS for center effect */}
       <style>{`
-  .slick-slide {
-    transition: all 0.3s ease-in-out;
-    opacity: 0.5; 
-    transform: scale(0.9);
-    z-index: 1;
-    
-  }
+
   .slick-center {
-    opacity: 1 !important; /* Active slide */
+    opacity: 1 !important;
     transform: scale(1.05);
     z-index: 10;
   }

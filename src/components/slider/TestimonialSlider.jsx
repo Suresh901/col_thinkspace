@@ -18,7 +18,7 @@ const testimonials = [
     image:
       "https://admin.colthinkspace.com/storage/teams/1735891443_677799f3eccbc.jpg",
     name: "Asmita Tamang",
-    location: "Nepal",
+    location: "Australia",
     texts:
       "From start to finish, the team was responsive, professional, and committed to quality. I appreciated the attention to detail and how they kept us updated at every stage.",
   },
@@ -32,9 +32,9 @@ const testimonials = [
   },
   {
     image:
-      "https://admin.colthinkspace.com/storage/teams/1737363742_678e111e59b25.jpg",
-    name: "Aju Maharjan",
-    location: "UK",
+      "https://admin.colthinkspace.com/storage/teams/1741516175_67cd6d8f9ebbb.jpg",
+    name: "Rija Maharjan",
+    location: "Nepal",
     texts:
       "They delivered high-quality code on time, every time. The support even after project completion was outstanding. We’ll definitely work with them again.",
   },
@@ -48,12 +48,12 @@ const TestimonialSlider = () => {
     dots: true,
     infinite: true,
     autoplay: true,
-    centerMode: true,
+    centerMode: false,
     autoplaySpeed: 4000,
     pauseOnHover: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 4,
+    slidesToScroll: 1,
     initialSlide: 0,
     responsive: [
       {
@@ -92,7 +92,7 @@ const TestimonialSlider = () => {
 
   return (
     <div
-      className="relative max-w-6xl mx-auto overflow-hidden my-10"
+      className="relative max-w-7xl mx-auto overflow-hidden my-10"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

@@ -7,6 +7,7 @@ import TestimonialSlider from "../../components/slider/TestimonialSlider";
 import Serve from "../../components/serve/Serve";
 import Request from "../../components/request/Request";
 import Testimonial from "./components/testimonial/Testimonial";
+import PartnerSlider from "../../components/slider/PartnerSlider";
 
 const homepage = () => {
   return (
@@ -14,7 +15,7 @@ const homepage = () => {
       <HeroSection />
       <AssistSection />
       <Methodology />
-      <h1>partners</h1>
+      <PartnerSlider />
       <Services />
       <Questions
         title="F"

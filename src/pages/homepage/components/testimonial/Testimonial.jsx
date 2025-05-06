@@ -13,7 +13,7 @@ const Testimonial = ({ item, index }) => {
           <p className="text-black text-justify">{item.texts}</p>
         </div>
 
-        <div className="relative h-48 overflow-hidden">
+        <div className="relative h-48 ">
           {/* Wave Background */}
           <div className="absolute inset-0 top-0 h-full w-full">
             <img
@@ -24,19 +24,23 @@ const Testimonial = ({ item, index }) => {
           </div>
 
           {/* Profile Picture */}
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 z-10 ">
+          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 z-10 ">
             <div className="w-24 h-24 rounded-full overflow-hidden">
               <img
                 src={item.image}
                 alt="User"
-                className="w-full h-full rounded-full "
+                className="w-full h-full rounded-full object-cover"
               />
             </div>
           </div>
 
           {/* Name */}
-          <div className="absolute bottom-16 w-full text-center ">
+          <div className="absolute bottom-28 w-full text-center ">
             <h3 className="text-xl font-medium">{item.name}</h3>
+          </div>
+          {/* address */}
+          <div className="absolute bottom-[5.5rem] w-full text-center ">
+            <h3 className="text-lg font-medium">{item.location}</h3>
           </div>
 
           {/* Social Media Icons */}

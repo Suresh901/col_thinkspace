@@ -99,7 +99,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="text-center text-gray-600 text-sm">
-        ©© {new Date().getFullYear()} COL Thinkspace
+        © {new Date().getFullYear()} COL Thinkspace
       </div>
     </div>
   );
