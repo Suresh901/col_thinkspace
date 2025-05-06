@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Intro = ({ filteredService }) => {
   return (
-    <div className=" flex flex-col justify-center">
+    <div className=" flex flex-col justify-center  py-10">
       <div className="text-sm sm:text-base font-medium text-gray-600 space-x-1 mt-10">
         <Link to="/" className=" hover:underline cursor-pointer">
           Home

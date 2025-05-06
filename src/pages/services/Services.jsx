@@ -8,6 +8,7 @@ import ScopeSlider from "../../components/slider/ScopeSlider";
 import Offer from "./components/offer/Offer";
 import Obligations from "./components/obligations/Obligations";
 import Request from "../../components/request/Request";
+import ServiceDetail from "./components/servicedetail/ServiceDetail";
 
 const Services = () => {
   const { id } = useParams();
@@ -20,8 +21,9 @@ const Services = () => {
       {filteredService.length > 0 ? (
         <div className=" px-8 md:px-12">
           <Intro filteredService={filteredService} />
-          <Obligations />
-          <Objective filteredService={filteredService} />
+          {/* <Obligations /> */}
+          <ServiceDetail filteredService={filteredService} />
+          {/* <Objective filteredService={filteredService} /> */}
           <ScopeSlider />
           <Packages />
           <Offer />

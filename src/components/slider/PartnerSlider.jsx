@@ -96,9 +96,9 @@ export default function PartnerSlider() {
   };
 
   return (
-    <div className="bg-gray-50 py-16">
-      <div className=" mx-auto px-4">
-        <div className="text-center mb-12">
+    <div className="bg-gray-50 py-10 ">
+      <div className=" px-4">
+        <div className="text-center mb-5">
           <h1 className="font-bold text-2xl lg:text-3xl">Our Partners</h1>
         </div>
 

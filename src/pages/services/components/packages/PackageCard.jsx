@@ -2,16 +2,23 @@ import React from "react";
 
 const PackageCard = ({ data }) => {
   return (
-    <div>
-      <div className="border border-gray-400 p-5 w-auto rounded-md">
-        <div className="flex flex-col gap-3 mb-5">
+    <div className="text-white">
+      <div
+        className="border border-gray-400 p-5 w-auto rounded-md"
+        style={{
+          backgroundImage: `url(${data.backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="flex flex-col gap-3 p-10 ">
           <div
-            className={`border p-2 rounded-md ${data.bgColor} flex flex-col items-center font-bold text-xl`}
+            className={` p-2 rounded-md flex flex-col items-center font-bold text-xl`}
           >
             <h1>{data.name}</h1>
             <h1>{data.subtitle}</h1>
           </div>
-          <div className="flex flex-col items-center border-b border-gray-400 text-xl">
+          <div className="flex flex-col items-center border-b border-white text-xl">
             <h1 className="pb-4">{data.price}</h1>
           </div>
         </div>
