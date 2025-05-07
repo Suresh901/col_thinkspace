@@ -29,7 +29,7 @@ const Step7 = ({
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-      <h1 className="text-lg">Few general information to contact you</h1>
+      {/* <h1 className="text-lg">Few general information to contact you</h1> */}
 
       <div className="flex flex-col gap-3">
         <div className="flex flex-col gap-2">

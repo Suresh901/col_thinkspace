@@ -13,11 +13,10 @@ const Step6 = ({
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-3">
         <h1 className="text-lg">
-          Would you mind leaving us your Contact number ?
+          Please provideus with your contact information.
         </h1>
         <h2 className="text-sm">
-          One of our representatives might give you a call or Whatsapp you on
-          this number.
+          You may recieve call from one of our representatives .
         </h2>
       </div>
       <div className="flex flex-col gap-2">

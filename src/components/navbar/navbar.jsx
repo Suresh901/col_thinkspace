@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ProductDropdown } from "../dropdown/ProductDropdown";
 import { HamDropdown } from "../dropdown/HamDropdown";
-import Modal from "../modal/modal";
+import Modal from "../modal/Modal";
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -73,15 +73,17 @@ const Navbar = () => {
         {isModalOpen && <Modal closeModal={closeModal} />}
 
         {/* Hamburger Menu and Dropdowns for Small Screens */}
-        <div className="lg:hidden flex items-center gap-2 sm:gap-3 md:gap-5">
-          <button
+        <div className="lg:hidden flex items-center gap-3 sm:gap-3 md:gap-5 mx-3">
+          {/* <button
             onClick={openModal}
-            className={`border p-2 rounded-md bg-white flex gap-2`}
+            className={`border p-2 rounded-md ${
+              isAtTop ? "bg-white" : "bg-[#f6f6f6] shadow-md"
+            } border px-2 py-1 rounded-md  flex gap-2`}
           >
             Join <span className="hidden sm:block"> Our Journey</span>
-          </button>
-          <ProductDropdown />
+          </button> */}
           <HamDropdown />
+          <ProductDropdown isAtTop={isAtTop} />
         </div>
       </div>
     </div>

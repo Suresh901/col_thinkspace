@@ -4,7 +4,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import AssistCard from "../card/assistcard";
-import { GoLightBulb } from "react-icons/go";
 import image from "../../assets/image/image.png";
 
 const cardDetails = [
@@ -45,39 +44,28 @@ const AssistSlider = () => {
   const [hovered, setHovered] = useState(false);
 
   const settings = {
-    centerMode: false,
     infinite: true,
-    slidesToShow: 3,
     autoplay: true,
     speed: 500,
     autoplaySpeed: 4000,
     pauseOnHover: true,
     arrows: false,
     slidesToScroll: 1,
+    slidesToShow: 3,
     swipeToSlide: true,
     touchMove: true,
     responsive: [
       {
         breakpoint: 1280,
-        settings: {},
+        settings: { slidesToShow: 3 },
       },
       {
         breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-        },
+        settings: { slidesToShow: 2 },
       },
       {
         breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-        },
+        settings: { slidesToShow: 1 },
       },
     ],
   };
@@ -92,24 +80,23 @@ const AssistSlider = () => {
 
   return (
     <div
-      className="relative mx-5 md:mx-10 overflow-hidden"
+      className="relative max-w-7xl mx-auto overflow-hidden my-10"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Inline CSS for center effect */}
+      {/* Optional: Style for centerMode if used in future */}
       <style>{`
-
-  .slick-center {
-    opacity: 1 !important;
-    transform: scale(1.05);
-    z-index: 10;
-  }
-`}</style>
+        .slick-center {
+          opacity: 1 !important;
+          transform: scale(1.05);
+          z-index: 10;
+        }
+      `}</style>
 
       <Slider ref={sliderRef} {...settings}>
         {cardDetails.map((item, index) => (
-          <div className=" my-5 md:my-10 ">
-            <AssistCard key={item.id + "-" + index} item={item} index={index} />
+          <div key={item.id} className="px-4">
+            <AssistCard item={item} index={index} />
           </div>
         ))}
       </Slider>
@@ -121,15 +108,15 @@ const AssistSlider = () => {
       >
         <button
           onClick={handlePrevClick}
-          className="p-1 sm:p-2 bg-white/80 hover:bg-white rounded-full shadow-lg focus:outline-none transition-all absolute left-0"
+          className="p-2 bg-white/80 hover:bg-white rounded-full shadow-lg absolute left-0 transition-all"
         >
-          <FaAngleLeft className="h-5 w-5 sm:h-8 sm:w-8 text-gray-800" />
+          <FaAngleLeft className="h-6 w-6 sm:h-8 sm:w-8 text-gray-800" />
         </button>
         <button
           onClick={handleNextClick}
-          className="p-1 sm:p-2 bg-white/80 hover:bg-white rounded-full shadow-lg focus:outline-none transition-all absolute right-0"
+          className="p-2 bg-white/80 hover:bg-white rounded-full shadow-lg absolute right-0 transition-all"
         >
-          <FaAngleRight className="h-5 w-5 sm:h-8 sm:w-8 text-gray-800" />
+          <FaAngleRight className="h-6 w-6 sm:h-8 sm:w-8 text-gray-800" />
         </button>
       </div>
     </div>

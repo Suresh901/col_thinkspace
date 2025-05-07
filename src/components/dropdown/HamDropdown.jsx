@@ -9,22 +9,33 @@ import {
   DropdownMenuTrigger,
 } from "../dropdown/DropdownHamMenu";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 export function HamDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button className="outline-none">
-          <RxHamburgerMenu />
+          <RxHamburgerMenu className="text-2xl" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-auto mt-2 bg-white z-10">
+      <DropdownMenuContent className="w-auto mt-2 bg-white z-10 px-4">
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Home</DropdownMenuItem>
-        <DropdownMenuItem>About Us</DropdownMenuItem>
-        <DropdownMenuItem>Build Up</DropdownMenuItem>
-        <DropdownMenuItem>Sandbox</DropdownMenuItem>
-        <DropdownMenuItem>Contact</DropdownMenuItem>
+        <Link to="/">
+          <DropdownMenuItem>Home</DropdownMenuItem>
+        </Link>
+        <Link to="/about">
+          <DropdownMenuItem>About Us</DropdownMenuItem>
+        </Link>
+        <Link to="/build">
+          <DropdownMenuItem>Build Up</DropdownMenuItem>
+        </Link>
+        <Link to="/sandbox">
+          <DropdownMenuItem>Sandbox</DropdownMenuItem>
+        </Link>
+        <Link to="/contact">
+          <DropdownMenuItem>Contact</DropdownMenuItem>
+        </Link>
       </DropdownMenuContent>
     </DropdownMenu>
   );

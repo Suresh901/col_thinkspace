@@ -28,7 +28,7 @@ const Step2 = ({
   };
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col  justify-center gap-5">
       <InputField
         setSelectedOption={handleValueChange}
         error={error}

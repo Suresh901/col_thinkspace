@@ -35,7 +35,7 @@ const Button = ({
   };
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 items-center justify-center">
       <button
         type="button"
         className="bg-gradient-to-t from-[#2816CA] to-[#B51AEE] text-white px-4 py-2 rounded"
