@@ -35,17 +35,17 @@ const Button = ({
   };
 
   return (
-    <div className="flex gap-2 items-center justify-center">
+    <div className="flex gap-5 items-center justify-center">
       <button
         type="button"
-        className="bg-gradient-to-t from-[#2816CA] to-[#B51AEE] text-white px-4 py-2 rounded"
+        className=" border border-[#7d5bbb] text-[#7d5bbb] px-4 py-2 rounded"
         onClick={prevStep}
       >
         Previous
       </button>
 
       <button
-        type={isSubmit ? "submit" : "button"} // Important fix
+        type={isSubmit ? "submit" : "button"}
         className="bg-gradient-to-t from-[#2816CA] to-[#B51AEE] text-white px-4 py-2 rounded"
         onClick={!isSubmit ? handleNext : undefined}
       >

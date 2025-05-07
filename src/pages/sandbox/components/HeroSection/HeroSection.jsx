@@ -2,14 +2,9 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <div className=" flex flex-col items-center justify-center gap-6 max-sm:px-4 h-[100vh] relative ">
+    <div className=" flex flex-col items-center justify-center gap-6 max-sm:px-4  h-[60vh] md:h-[85vh] relative ">
       <div className="flex flex-col items-center max-sm:px-4 justify-center gap-6">
-        {/* <div className="bg-white rounded-full">
-          <button className="text-gradient bg-text-gradient text-[10px] sm:text-[15px] border-2 rounded-full p-2 ">
-            Discover What's New
-          </button>
-        </div> */}
-        <div className="font-bold  text-xl sm:text-4xl md:text-5xl lg:text-7xl flex flex-col items-center gap-1">
+        <div className="font-bold text-4xl md:text-5xl lg:text-6xl flex flex-col items-center gap-1">
           <h1 className="flex items-center text-center">
             Color your Ideas with your
           </h1>

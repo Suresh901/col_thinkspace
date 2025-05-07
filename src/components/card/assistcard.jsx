@@ -2,7 +2,7 @@ const AssistCard = ({ item, index }) => {
   return (
     <div className="flex items-center justify-center gap-2 " key={index}>
       <div className="p-[2px] rounded-2xl bg-text-gradient w-full max-w-md ">
-        <div className="flex flex-col gap-4 p-6 sm:p-10  bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out min-h-[400px]">
+        <div className="flex flex-col gap-4 p-6 sm:p-10  bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out min-h-[350px]">
           <div className="w-20 h-20">
             <img
               src={item.logo}
