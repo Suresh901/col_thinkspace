@@ -1,3 +1,5 @@
+import AnimatedHeading from "../heading/AnimatedHeading";
+
 const herosection = () => {
   return (
     <div className=" z-10 flex flex-col items-center justify-center gap-6 max-sm:px-4 h-[60vh] md:h-[85vh] ">
@@ -8,22 +10,12 @@ const herosection = () => {
             Elevating the Future <br /> of Innovation
           </h1>
         </div>
-        <div className="text-md md:text-xl lg:text-2xl">
-          <h1>
-            Color Your Sketched{" "}
-            <span className="text-gradient bg-text-gradient font-bold">
-              Idea to life.
-            </span>
-          </h1>
-        </div>
+        <AnimatedHeading />
         <div>
           <div className="p-[2px] rounded-xl max-sm:rounded-lg  md:rounded-2xl inline-block bg-text-gradient">
-            <button
-              type="button"
-              className="rounded-xl max-sm:rounded-lg  md:rounded-2xl px-6 py-3 text-xl bg-white w-full h-full max-lg:px-4 max-lg:py-3 max-lg:text-sm max-sm:px-4 max-sm:py-2 max-sm:text-sm"
-            >
+            <div className="rounded-xl max-sm:rounded-lg  md:rounded-2xl px-6 py-3 text-xl bg-white w-full h-full max-lg:px-4 max-lg:py-3 max-lg:text-sm max-sm:px-4 max-sm:py-2 max-sm:text-sm">
               Start Exploring
-            </button>
+            </div>
           </div>
         </div>
       </div>

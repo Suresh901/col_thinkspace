@@ -1,9 +1,16 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { ProductDropdown } from "../dropdown/ProductDropdown";
 import { HamDropdown } from "../dropdown/HamDropdown";
 import Modal from "../modal/Modal";
 
+const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/about" },
+  { name: "Build Up", path: "/build" },
+  { name: "Sandbox", path: "/sandbox" },
+  { name: "Contact", path: "/contact" },
+];
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isAtTop, setIsAtTop] = useState(true);
@@ -39,23 +46,22 @@ const Navbar = () => {
         </div>
 
         {/* Navigation Links for Large Screens */}
-        <div className="hidden lg:flex gap-x-5 items-center font-medium text-gray-500">
+        <div className="hidden lg:flex gap-x-5 items-center font-medium text-lg ">
           <ul className="flex gap-x-10">
-            <Link to="/">
-              <li>Home</li>
-            </Link>
-            <Link to="/about">
-              <li>About Us</li>
-            </Link>
-            <Link to="/build">
-              <li>Build Up</li>
-            </Link>
-            <Link to="/sandbox">
-              <li>Sandbox</li>
-            </Link>
-            <Link to="/contact">
-              <li>Contact</li>
-            </Link>
+            {navLinks.map((link) => (
+              <li key={link.path}>
+                <NavLink
+                  to={link.path}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-black font-bold underline "
+                      : "text-gray-500 "
+                  }
+                >
+                  {link.name}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="lg:flex gap-x-5 hidden">
