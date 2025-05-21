@@ -10,18 +10,17 @@ const build = () => {
     name: "",
     email: "",
     role: "",
-    contact: "",
+    phone: "",
     website: "",
     address: "",
     logo: "",
   });
 
-  // console.log(form);
-
   const [selectedFile, setSelectedFile] = useState([]);
   const printRef = React.useRef(null);
 
   const handleDownloadPdf = async () => {
+    console.log("button clicked");
     const element = printRef.current;
     if (!element) {
       console.error("Print element not found");
@@ -66,9 +65,33 @@ const build = () => {
             name: "",
             email: "",
             role: "",
-            contact: "",
+            phone: "",
             website: "",
             address: "",
+            logo: null,
+          }}
+          onSubmit={(values) => {
+            const formData = new FormData();
+            Object.entries(values).forEach(([key, value]) => {
+              formData.append(key, value);
+              console.log(values);
+            });
+            //api
+            fetch("https://admin.colthinkspace.com/api/build-with-us/store", {
+              method: "POST",
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+              body: formData,
+            })
+              .then((res) => console.log("kokoko", res))
+              .then((res) => res.json())
+              .then((data) => {
+                console.log("Success", data);
+              })
+              .catch((err) => {
+                console.error("Error", err);
+              });
           }}
           validate={(values) => {
             const errors = {};
@@ -85,10 +108,10 @@ const build = () => {
             if (!values.role) {
               errors.role = "Business role is required";
             }
-            if (!values.contact) {
-              errors.contact = "Contact number is required";
-            } else if (!/^\+?[0-9]{7,15}$/.test(values.contact)) {
-              errors.contact = "Invalid contact number format";
+            if (!values.phone) {
+              errors.phone = "phone number is required";
+            } else if (!/^\+?[0-9]{7,15}$/.test(values.phone)) {
+              errors.phone = "Invalid phone number format";
             }
             if (!values.website) {
               errors.website = "Website is required";
@@ -105,13 +128,13 @@ const build = () => {
             if (!values.name) errors.name = "Full name is required";
             if (!values.email) errors.email = "Email is required";
             if (!values.role) errors.role = "Business role is required";
-            if (!values.contact) errors.contact = "Contact number is required";
+            if (!values.phone) errors.phone = "phone number is required";
             if (!values.website) errors.website = "Website is required";
             if (!values.address) errors.address = "Address is required";
             return errors;
           }}
         >
-          {({ handleChange, isValid, dirty }) => (
+          {({ handleChange, isValid, dirty, setFieldValue }) => (
             <BuildForm
               setForm={setForm}
               handleChange={handleChange}
@@ -120,6 +143,7 @@ const build = () => {
               dirty={dirty}
               selectedFile={selectedFile}
               setSelectedFile={setSelectedFile}
+              setFieldValue={setFieldValue}
             />
           )}
         </Formik>

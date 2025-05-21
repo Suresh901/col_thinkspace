@@ -35,10 +35,10 @@ const offers = [
 
 const Offer = () => {
   return (
-    <div className="py-10 flex flex-col xl:flex-row gap-10 my-10">
+    <div className="py-10 flex flex-col xl:flex-row gap-10 my-10 mx-12 px-10">
       <div className="xl:w-1/2 flex flex-col gap-5">
         <h1 className="font-bold text-3xl"> What can we offer?</h1>
-        <p className="text-md leading-relaxed">
+        <p className="text-md md:text-lg leading-relaxed">
           Based on our discussion, we propose a cost-effective Basic Digital
           Marketing Package that ensures value delivery while staying aligned
           with your budget and business goals. Here's what the package includes:

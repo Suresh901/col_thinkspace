@@ -51,13 +51,13 @@ const AssistSlider = () => {
     pauseOnHover: true,
     arrows: false,
     slidesToScroll: 1,
-    slidesToShow: 3,
+    slidesToShow: 4,
     swipeToSlide: true,
     touchMove: true,
     responsive: [
       {
         breakpoint: 1280,
-        settings: { slidesToShow: 3 },
+        settings: { slidesToShow: 4 },
       },
       {
         breakpoint: 1024,

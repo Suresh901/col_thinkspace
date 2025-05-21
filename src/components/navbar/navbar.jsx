@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { ProductDropdown } from "../dropdown/ProductDropdown";
 import { HamDropdown } from "../dropdown/HamDropdown";
 import Modal from "../modal/Modal";
+import icon from "../../assets/image/icon.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -11,8 +12,13 @@ const navLinks = [
   { name: "Sandbox", path: "/sandbox" },
   { name: "Contact", path: "/contact" },
 ];
+
 const Navbar = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+  const isSandbox = location.pathname === "/sandbox";
+  const isTransparentPage = isHomePage || isSandbox;
+
   const [isAtTop, setIsAtTop] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -24,29 +30,40 @@ const Navbar = () => {
       setIsAtTop(window.scrollY === 0);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (isHomePage) {
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    } else {
+      setIsAtTop(false);
+    }
+  }, [isHomePage]);
 
   return (
     <div
-      className={`sticky top-0 left-0 w-full z-10 transition-transform duration-300 ease-in-out 
-      ${isVisible ? "translate-y-0" : "-translate-y-full"}
-      ${isAtTop ? "bg-transparent" : "bg-white shadow-md"} 
-      `}
+      className={`${
+        isTransparentPage
+          ? "absolute top-0 left-0 w-full z-30"
+          : "relative w-full"
+      } transition duration-300 ${
+        isTransparentPage ? "bg-transparent" : "bg-[#f7f7f7]"
+      } border-b`}
     >
       <div className="flex justify-between items-center py-4 px-4 md:px-12 mx-auto max-w-[1500px]">
         {/* Logo Section */}
         <div className="flex-shrink-0 w-20 md:w-24">
-          <img
-            src="https://colthinkspace.com/_app/immutable/assets/new-purple-logo.DBBwDQ3E.webp"
-            alt="logo"
-            className="w-full h-auto"
-          />
+          {isTransparentPage ? (
+            <img src={icon} alt="logo" className="w-full h-auto" />
+          ) : (
+            <img
+              src="https://colthinkspace.com/_app/immutable/assets/new-purple-logo.DBBwDQ3E.webp"
+              alt="logo"
+              className="w-full h-auto"
+            />
+          )}
         </div>
 
-        {/* Navigation Links for Large Screens */}
-        <div className="hidden lg:flex gap-x-5 items-center font-medium text-lg ">
+        {/* Navigation Links */}
+        <div className="hidden lg:flex gap-x-5 items-center font-medium text-lg">
           <ul className="flex gap-x-10">
             {navLinks.map((link) => (
               <li key={link.path}>
@@ -54,8 +71,12 @@ const Navbar = () => {
                   to={link.path}
                   className={({ isActive }) =>
                     isActive
-                      ? "text-black font-bold underline "
-                      : "text-gray-500 "
+                      ? isTransparentPage
+                        ? "text-white font-bold underline"
+                        : "text-black font-bold underline"
+                      : isTransparentPage
+                      ? "text-white"
+                      : "text-gray-500"
                   }
                 >
                   {link.name}
@@ -64,11 +85,15 @@ const Navbar = () => {
             ))}
           </ul>
         </div>
+
+        {/* Desktop Buttons */}
         <div className="lg:flex gap-x-5 hidden">
           <button
             onClick={openModal}
             className={`border p-2 rounded-md ${
-              isAtTop ? "bg-white" : "bg-[#f6f6f6] shadow-md"
+              isTransparentPage && isAtTop
+                ? "bg-white text-black"
+                : "bg-[#f6f6f6] shadow-md text-black"
             }`}
           >
             Join Our Journey
@@ -76,20 +101,16 @@ const Navbar = () => {
 
           <ProductDropdown isAtTop={isAtTop} />
         </div>
+
         {isModalOpen && <Modal closeModal={closeModal} />}
 
-        {/* Hamburger Menu and Dropdowns for Small Screens */}
+        {/* Mobile Hamburger */}
         <div className="lg:hidden flex items-center gap-3 sm:gap-3 md:gap-5 mx-3">
-          {/* <button
-            onClick={openModal}
-            className={`border p-2 rounded-md ${
-              isAtTop ? "bg-white" : "bg-[#f6f6f6] shadow-md"
-            } border px-2 py-1 rounded-md  flex gap-2`}
-          >
-            Join <span className="hidden sm:block"> Our Journey</span>
-          </button> */}
-          <HamDropdown />
-          <ProductDropdown isAtTop={isAtTop} />
+          <HamDropdown isTransparentPage={isTransparentPage} />
+          <ProductDropdown
+            isAtTop={isAtTop}
+            isTransparentPage={isTransparentPage}
+          />
         </div>
       </div>
     </div>

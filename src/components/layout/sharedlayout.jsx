@@ -7,7 +7,7 @@ const sharedlayout = () => {
     <>
       <div className="bg-[#f7f7f7]">
         <div className="max-w-[1800px] mx-auto  ">
-          <img
+          {/* <img
             style={{
               maskImage:
                 "radial-gradient(50% 80% at 50% 0%, rgba(0, 0, 0, 1) 30%, rgba(255, 255, 255, 0.2) 100%)",
@@ -16,7 +16,7 @@ const sharedlayout = () => {
             }}
             className="absolute w-full h-[100dvh] top-0 left-0 object-cover opacity-60 "
             src="https://colthinkspace.com/_app/immutable/assets/background.R_sD7WUz.avif"
-          />
+          /> */}
           <Navbar />
           <Outlet />
         </div>

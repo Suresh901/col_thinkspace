@@ -5,7 +5,6 @@ import {
   CardHeader,
   CardTitle,
 } from "../tab/tab";
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../tab/tab";
 import {
   LuTelescope,
@@ -145,11 +144,11 @@ export function MethodologyTab() {
                     </CardTitle>
                   </div>
 
-                  <p className="text-sm font-medium text-gray-500 ">
+                  <p className="text-md font-medium text-gray-500 ">
                     {task.title}
                   </p>
 
-                  <CardDescription className="text-md md:text-xl">
+                  <CardDescription className="text-md md:text-lg">
                     {task.description}
                   </CardDescription>
 

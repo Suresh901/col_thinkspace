@@ -17,9 +17,9 @@ const Services = () => {
   const filteredService = datas.filter((service) => service.heading === id);
 
   return (
-    <div className="relative xl:px-12">
+    <div className=" ">
       {filteredService.length > 0 ? (
-        <div className=" px-8 md:px-12">
+        <div className=" ">
           <Intro filteredService={filteredService} />
           {/* <Obligations /> */}
           <ServiceDetail filteredService={filteredService} />

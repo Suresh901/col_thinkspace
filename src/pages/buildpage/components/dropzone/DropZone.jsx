@@ -2,29 +2,18 @@ import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { MdDeleteOutline } from "react-icons/md";
 
-const Drop = ({ selectedFile, setSelectedFile, setForm }) => {
-  // const onDrop = useCallback((files) => {
-  //   // console.log(files);
-  //   setSelectedFile(files);
-  // });
-
+const Drop = ({ selectedFile, setSelectedFile, setForm, setFieldValue }) => {
   const onDrop = useCallback(
     (files) => {
       if (files.length > 0) {
         const file = files[0];
         setSelectedFile([file]);
 
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          setForm((prevForm) => ({
-            ...prevForm,
-            logo: reader.result,
-          }));
-        };
-        reader.readAsDataURL(file);
+        // Set the file into Formik field
+        setFieldValue("logo", file);
       }
     },
-    [setSelectedFile, setForm]
+    [setSelectedFile, setFieldValue]
   );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });

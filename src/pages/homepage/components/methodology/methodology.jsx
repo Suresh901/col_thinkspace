@@ -14,10 +14,10 @@ const methodology = () => {
     >
       <div className="flex flex-col px-12 justify-between text-center gap-5">
         <h1 className="font-bold text-2xl lg:text-3xl">Our Methodology</h1>
-        <p className="mx-auto max-w-screen-sm text-md md:text-xl">
-          We bring bold ideas to life with smart technology and custom
-          solutions—partnering closely with you to break through barriers,
-          streamline operations, and drive real, strategic impact.
+        <p className="mx-auto max-w-screen-sm text-md md:text-lg">
+          We bring bold ideas to life with smart technology and custom solutions
+          partnering closely with you to break through barriers, streamline
+          operations, and drive real, strategic impact.
         </p>
       </div>
       <MethodologyTab />

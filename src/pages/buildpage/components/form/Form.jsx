@@ -9,6 +9,7 @@ const Basic = ({
   dirty,
   setSelectedFile,
   selectedFile,
+  setFieldValue,
 }) => (
   <div>
     <div className="mb-10 ">
@@ -24,6 +25,7 @@ const Basic = ({
           selectedFile={selectedFile}
           setSelectedFile={setSelectedFile}
           setForm={setForm}
+          setFieldValue={setFieldValue}
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6">
           <div>
@@ -100,23 +102,23 @@ const Basic = ({
 
           <div>
             <h1>
-              Contact Number <span className="text-red-600">*</span>
+              Phone Number <span className="text-red-600">*</span>
             </h1>
             <Field
               type="text"
-              name="contact"
+              name="phone"
               className="border-2 bg-white p-4 rounded-lg w-full"
-              placeholder="Enter Your Contact Number"
+              placeholder="Enter Your Phone Number"
               onChange={(e) => {
                 setForm((prevForm) => ({
                   ...prevForm,
-                  contact: e.target.value,
+                  phone: e.target.value,
                 }));
                 handleChange(e);
               }}
             />
             <ErrorMessage
-              name="contact"
+              name="phone"
               component="div"
               className="text-red-600 text-sm"
             />
@@ -173,7 +175,7 @@ const Basic = ({
       </div>
       <button
         type="submit"
-        className="p-4 border-2 rounded-md mt-2 w-full bg-[#172554] text-white font-semibold"
+        className="p-4 border-2 rounded-md mt-2 w-full bg-[#172554] text-white font-semibold cursor-pointer"
         onClick={handleDownloadPdf}
         disabled={!(isValid && dirty)}
       >

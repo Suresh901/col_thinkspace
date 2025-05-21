@@ -11,7 +11,7 @@ import {
 import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-export function ProductDropdown({ isAtTop }) {
+export function ProductDropdown({ isAtTop, isTransparentPage }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -19,14 +19,18 @@ export function ProductDropdown({ isAtTop }) {
           <div
             className={`border border-3 p-2 rounded-md md:flex items-center gap-2 cursor-pointer hidden   ${
               isAtTop ? "bg-white" : "bg-[#f6f6f6] shadow-md"
-            }`}
+            } `}
           >
             <BsGrid className="text-2xl" />
             <h1>Our Products</h1>
             <IoIosArrowDown />
           </div>
           <div className=" p-2 rounded-md flex md:hidden items-center gap-2 text-2xl">
-            <BsGrid />
+            <BsGrid
+              className={`text-2xl ${
+                isTransparentPage ? "text-white" : "text-black"
+              } `}
+            />
           </div>
         </button>
       </DropdownMenuTrigger>

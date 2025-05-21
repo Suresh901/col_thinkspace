@@ -11,12 +11,16 @@ import {
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
 
-export function HamDropdown() {
+export function HamDropdown({ isTransparentPage }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button className="outline-none">
-          <RxHamburgerMenu className="text-2xl" />
+          <RxHamburgerMenu
+            className={`text-2xl ${
+              isTransparentPage ? "text-white" : "text-black"
+            } `}
+          />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-auto mt-2 bg-white z-10 px-4">

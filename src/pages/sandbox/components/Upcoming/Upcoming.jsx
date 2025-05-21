@@ -3,7 +3,7 @@ import Events from "../events/Events";
 
 const Upcoming = () => {
   return (
-    <div className="md:px-12">
+    <div className="md:px-12 my-20">
       <div className="">
         <h1 className="font-bold text-xl">Upcoming Events</h1>
       </div>

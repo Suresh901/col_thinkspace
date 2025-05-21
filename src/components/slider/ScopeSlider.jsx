@@ -89,9 +89,11 @@ const ScopeSlider = () => {
   };
 
   return (
-    <div className="py-5 my-10">
+    <div className="py-5 my-10 mx-12">
       <div className="flex flex-col items-center pb-10">
-        <h1 className="font-bold text-2xl mb-5 text-center">Scope of Work</h1>
+        <h1 className="font-bold text-2xl md:text-3xl mb-5 text-center">
+          Scope of Work
+        </h1>
         <p className="text-md md:text-lg mx-auto max-w-screen-sm">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti
           odit nam praesentium culpa voluptatem odio dolor illum, ab nisi

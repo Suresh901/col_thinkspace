@@ -7,13 +7,13 @@ const Stories = () => {
       <div className="flex flex-col px-6 lg:flex-row gap-10 ">
         <div className="lg:w-1/2 md:px-6 pt-10 lg:pt-0 flex items-center">
           <img
-            src="https://colthinkspace.com/_app/immutable/assets/firmbee-com-gcsNOsPEXfs-unsplash.Dt_L6CNf.jpg"
+            src="https://images.ctfassets.net/pdf29us7flmy/4dRKN4OCnUTH8NFn0hfbd6/0e2a8ed7351b0f34e0ae72a2e39e15cf/GettyImages-764798619_optimized__1_.jpg?w=720&q=100&fm=jpg"
             alt=""
             className="rounded-xl"
           />
         </div>
         <div className="lg:w-1/2 ">
-          <p className="text-md md:text-xl leading-relaxed lg:pl-10 text-justify">
+          <p className="text-md md:text-lg leading-relaxed lg:pl-10 text-justify">
             What began as a bold vision shared by three determined individuals
             quickly turned into a movement that would redefine IT solutions in
             Nepal. Fueled by passion, innovation, and a desire to create

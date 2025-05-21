@@ -41,6 +41,30 @@ const faqAccordion = [
       "Absolutely! We offer ongoing maintenance, support, and updates to ensure your software remains secure and up to date.",
     value: "item-6",
   },
+  {
+    question: "How long does it take to complete a project?",
+    answer:
+      "The timeline depends on the project scope and requirements. We typically provide a detailed timeline after analyzing your needs during the initial consultation.",
+    value: "item-7",
+  },
+  {
+    question: "Can ThinkSpace redesign my existing website or app?",
+    answer:
+      "Yes, we offer redesign services to modernize your digital platforms, enhance user experience, and align with your current branding and business goals.",
+    value: "item-8",
+  },
+  {
+    question: "Do you work with startups as well as established businesses?",
+    answer:
+      "Absolutely! We partner with startups, SMEs, and large enterprises, tailoring our solutions to meet the unique challenges and goals of each business.",
+    value: "item-9",
+  },
+  {
+    question: "Is ThinkSpace open to long-term collaborations?",
+    answer:
+      "Yes, we value long-term partnerships and often work as dedicated technology partners to support continuous growth and innovation for our clients.",
+    value: "item-10",
+  },
 ];
 
 const QuestionAccordion = () => {

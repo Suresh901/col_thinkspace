@@ -8,9 +8,9 @@ const Team = ({ item }) => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="border transition-transform duration-300 hover:scale-105 hover:bg-gradient-to-t from-[#2816CA] to-[#B51AEE] hover:text-white">
+      <div className="border bg-text-gradient p-[1px] transition-transform duration-300 hover:scale-110 hover:shadow-xl hover:font-semibold">
         <img src={item.photo} alt="logo" className="w-64 h-64 object-cover" />
-        <div className="flex items-center justify-between p-2 ">
+        <div className="flex items-center justify-between p-2 bg-white">
           <div>
             <h1>{item.name}</h1>
             <h2 className="text-sm">{item.position}</h2>

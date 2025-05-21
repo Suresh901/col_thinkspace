@@ -45,7 +45,7 @@ const DetailandQr = ({ form, selectedFile }) => {
             <div className="flex items-center gap-5 md:gap-10">
               <LuPhone size={24} />
               <h2 className="text-sm md:text-xl">
-                {form?.contact || "98XXXXXXXX"}
+                {form?.phone || "98XXXXXXXX"}
               </h2>
             </div>
             <div className="flex items-center gap-5 md:gap-10">
@@ -66,7 +66,10 @@ const DetailandQr = ({ form, selectedFile }) => {
               selectedFile.length > 0 &&
               selectedFile.map((item) => {
                 return (
-                  <div className="flex items-center justify-between gap-5">
+                  <div
+                    className="flex items-center justify-between gap-5"
+                    key={item.path}
+                  >
                     <img
                       src={URL.createObjectURL(item)}
                       alt=""
@@ -92,7 +95,7 @@ const DetailandQr = ({ form, selectedFile }) => {
         }}
       >
         <QRCode
-          value={`name=${form?.name} email=${form?.email} role=${form?.role} address=${form?.address} website=${form?.website} contact=${form?.contact}`}
+          value={`name=${form?.name} email=${form?.email} role=${form?.role} address=${form?.address} website=${form?.website} phone=${form?.phone}`}
           size={200}
           className="mt-5 mb-5 "
         />

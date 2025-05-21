@@ -37,7 +37,7 @@ const TeamCard = () => {
               Colors to your Idea
             </span>
           </div>
-          <p className="text-center flex items-center justify-center mx-auto px-6 md:px-12 text-md md:text-xl ">
+          <p className="text-center flex items-center justify-center mx-auto px-6 md:px-12 text-md md:text-lg ">
             We are a dynamic group of ambitious young professionals, each
             equipped with specialized training and expertise in the fields of
             web and mobile application development, digital marketing

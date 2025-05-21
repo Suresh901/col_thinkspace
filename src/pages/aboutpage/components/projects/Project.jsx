@@ -33,8 +33,8 @@ const Project = () => {
   });
 
   const { ref, inView } = useInView({
-    triggerOnce: false, // Change to true if you want it to animate only once
-    threshold: 0.5, // Start animation when 50% of the element is visible
+    triggerOnce: false,
+    threshold: 0.5,
   });
 
   useEffect(() => {
@@ -58,11 +58,8 @@ const Project = () => {
   ]);
 
   return (
-    <div
-      ref={ref}
-      className="flex items-center justify-center mb-20  text-center text-white  "
-    >
-      <div className="border flex flex-col md:flex-row bg-gradient-to-t from-[#2816CA] to-[#B51AEE] gap-20 p-20 ">
+    <div ref={ref} className=" mb-20 max-w-7xl mx-auto text-white   ">
+      <div className="border flex-col md:flex-row bg-gradient-to-t from-[#2816CA] to-[#B51AEE] gap-20 p-20  flex items-center justify-center  rounded-xl">
         {/* Projects Completed */}
         <div className="flex flex-col items-center">
           <h2 className="text-2xl font-semibold">Projects Completed</h2>

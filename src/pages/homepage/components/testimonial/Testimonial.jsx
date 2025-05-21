@@ -44,8 +44,8 @@ const Testimonial = ({ item }) => {
         </div>
 
         {/* Profile Picture */}
-        <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 z-10">
-          <div className="w-24 h-24 rounded-full overflow-hidden">
+        <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 z-10">
+          <div className="w-28 h-28 rounded-full overflow-hidden">
             <img
               src={item.image}
               alt="User"
@@ -59,7 +59,7 @@ const Testimonial = ({ item }) => {
         </div>
 
         <div className="absolute bottom-[5.5rem] w-full text-center">
-          <h3 className="text-lg font-medium">{item.location}</h3>
+          <h3 className="text-md font-medium">{item.location}</h3>
         </div>
 
         {/* Social Media Icons */}

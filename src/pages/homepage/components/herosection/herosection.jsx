@@ -1,26 +1,40 @@
 import AnimatedHeading from "../heading/AnimatedHeading";
+import HeroVideo from "../../../../assets/image/intro.mp4";
+import { Link } from "react-router-dom";
 
-const herosection = () => {
+const HeroSection = () => {
   return (
-    <div className=" z-10 flex flex-col items-center justify-center gap-6 max-sm:px-4 h-[60vh] md:h-[85vh] ">
-      <div className="flex flex-col items-center max-sm:px-4 justify-center gap-6">
-        <div className="bg-white rounded-full"></div>
-        <div className="font-bold text-4xl md:text-5xl lg:text-7xl flex flex-col items-center gap-1">
-          <h1 className="flex items-center text-center">
-            Elevating the Future <br /> of Innovation
-          </h1>
-        </div>
+    <div className="relative h-screen flex flex-col items-center justify-center gap-2 overflow-hidden">
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        src={HeroVideo}
+      />
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/40 z-10"></div>
+
+      {/* Content */}
+      <div className="relative z-20 max-w-7xl mx-auto px-6 flex flex-col justify-center items-start h-full text-white">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+          Welcome to ThinkSpace
+        </h1>
         <AnimatedHeading />
-        <div>
-          <div className="p-[2px] rounded-xl max-sm:rounded-lg  md:rounded-2xl inline-block bg-text-gradient">
-            <div className="rounded-xl max-sm:rounded-lg  md:rounded-2xl px-6 py-3 text-xl bg-white w-full h-full max-lg:px-4 max-lg:py-3 max-lg:text-sm max-sm:px-4 max-sm:py-2 max-sm:text-sm">
-              Start Exploring
-            </div>
-          </div>
-        </div>
+        <p className="text-lg md:text-2xl mb-6 max-w-2xl">
+          Empowering Ideas, Building Innovation.
+        </p>
+        <Link to="/contact">
+          <button className="bg-white text-black px-6 py-3 rounded-md font-medium hover:bg-gray-200 transition">
+            Get Started
+          </button>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default herosection;
+export default HeroSection;

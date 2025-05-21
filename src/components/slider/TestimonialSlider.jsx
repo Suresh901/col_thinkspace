@@ -83,7 +83,9 @@ const TestimonialSlider = () => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <h1 className="text-3xl font-bold text-center py-10">Our Testimonial</h1>
+      <h1 className="font-bold text-xl sm:text-2xl lg:text-3xl text-center py-10">
+        Our Testimonial
+      </h1>
 
       <Slider ref={sliderRef} {...settings}>
         {testimonials.map((item, index) => (
