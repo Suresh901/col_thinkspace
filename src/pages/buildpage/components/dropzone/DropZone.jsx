@@ -47,7 +47,7 @@ const Drop = ({ selectedFile, setSelectedFile, setForm, setFieldValue }) => {
                 alt="logo-preview"
                 className="w-30 h-20"
               />
-              <MdDeleteOutline size={26} />
+              {/* <MdDeleteOutline size={26} /> */}
             </div>
           ))}
       </div>

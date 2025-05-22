@@ -34,7 +34,7 @@ const MultiStepForm = ({ closeModal }) => {
           {Math.round((step / totalSteps) * 100)}%
         </h1>
         <div className="flex flex-col items-end gap-1 ">
-          <div className="w-full bg-gray-200 rounded-lg h-4  overflow-hidden">
+          <div className="w-full bg-gray-200 rounded-md h-4  overflow-hidden">
             <div
               className="bg-gradient-to-t from-[#2816CA] to-[#B51AEE] h-full transition-all duration-300 ease-in-out"
               style={{ width: `${(step / totalSteps) * 100}%` }}

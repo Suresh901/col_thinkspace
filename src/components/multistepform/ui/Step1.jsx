@@ -3,7 +3,7 @@ import React from "react";
 const Step1 = ({ nextStep }) => {
   return (
     <div className="flex flex-col items-center justify-center gap-2">
-      <h2 className="text-2xl font-bold mb-4 px-2">
+      <h2 className="text-xl font-bold mb-4 px-2">
         Let’s start your project and bring your dream into reality.
       </h2>
       <button
