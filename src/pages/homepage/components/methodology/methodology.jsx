@@ -1,6 +1,12 @@
 import React from "react";
 import { MethodologyTab } from "../../../../components/tab/MethodologyTab";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const methodology = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div
       className="flex flex-col gap-5 md:gap-10 py-10"
@@ -11,8 +17,14 @@ const methodology = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
+      data-aos="fade-up"
+      data-aos-duration="1000"
     >
-      <div className="flex flex-col px-12 justify-between text-center gap-5">
+      <div
+        className="flex flex-col px-12 justify-between text-center gap-5"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
         <h1 className="font-bold text-2xl lg:text-3xl">Our Methodology</h1>
         <p className="mx-auto max-w-screen-sm text-md md:text-lg">
           We bring bold ideas to life with smart technology and custom solutions

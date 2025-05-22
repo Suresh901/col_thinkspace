@@ -1,8 +1,13 @@
 import AnimatedHeading from "../heading/AnimatedHeading";
 import HeroVideo from "../../../../assets/image/intro.mp4";
 import { Link } from "react-router-dom";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const HeroSection = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div className="relative h-screen flex flex-col items-center justify-center gap-2 overflow-hidden">
       {/* Video Background */}
@@ -20,15 +25,27 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-20 max-w-7xl mx-auto px-6 flex flex-col justify-center items-start h-full text-white">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+        <h1
+          className="text-4xl md:text-6xl font-bold mb-4 leading-tight"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
           Welcome to ThinkSpace
         </h1>
         <AnimatedHeading />
-        <p className="text-lg md:text-2xl mb-6 max-w-2xl">
+        <p
+          className="text-lg md:text-2xl mb-6 max-w-2xl"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
           Empowering Ideas, Building Innovation.
         </p>
         <Link to="/contact">
-          <button className="bg-white text-black px-6 py-3 rounded-md font-medium hover:bg-gray-200 transition">
+          <button
+            className="bg-white text-black px-6 py-3 rounded-md font-medium hover:bg-gray-200 transition"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
             Get Started
           </button>
         </Link>

@@ -4,6 +4,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Testimonial from "../../pages/homepage/components/testimonial/Testimonial";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const testimonials = [
   {
@@ -41,6 +44,9 @@ const testimonials = [
 ];
 
 const TestimonialSlider = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const sliderRef = useRef(null);
   const [hovered, setHovered] = useState(false);
 
@@ -82,8 +88,14 @@ const TestimonialSlider = () => {
       className="relative max-w-7xl mx-auto overflow-hidden my-10 "
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      data-aos="fade-up"
+      data-aos-duration="2000"
     >
-      <h1 className="font-bold text-xl sm:text-2xl lg:text-3xl text-center py-10">
+      <h1
+        className="font-bold text-xl sm:text-2xl lg:text-3xl text-center py-10"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
         Our Testimonial
       </h1>
 

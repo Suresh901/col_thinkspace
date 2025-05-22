@@ -6,10 +6,20 @@ import { FiUser } from "react-icons/fi";
 import QRCode from "react-qr-code";
 import Img from "../../../../assets/image/frame4.png";
 import Img1 from "../../../../assets/image/frame5.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const DetailandQr = ({ form, selectedFile }) => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
-    <div className="w-full h-full p-0 m-0 flex flex-col">
+    <div
+      className="w-full h-full p-0 m-0 flex flex-col"
+      data-aos="fade-left"
+      data-aos-duration="2000"
+    >
       {/* Top section with user details */}
       <div
         style={{

@@ -3,6 +3,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Partner from "../../pages/homepage/components/partner/Partner";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const partnerLogos = [
   {
@@ -60,13 +63,14 @@ export default function PartnerSlider() {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed:1000,
+    autoplaySpeed: 1000,
     pauseOnHover: true,
     arrows: false,
+    cssEase: "linear",
     responsive: [
       {
         breakpoint: 1280,
@@ -94,9 +98,16 @@ export default function PartnerSlider() {
       },
     ],
   };
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   return (
-    <div className="bg-gray-50 py-10 ">
+    <div
+      className="bg-gray-50 py-10 "
+      data-aos="fade-up"
+      data-aos-duration="2000"
+    >
       <div className=" px-4">
         <div className="text-center mb-5">
           <h1 className="font-bold text-2xl lg:text-3xl">Our Partners</h1>

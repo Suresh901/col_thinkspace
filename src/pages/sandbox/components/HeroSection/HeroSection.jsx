@@ -1,8 +1,13 @@
 import React from "react";
 import heroSection from "../../../../assets/image/sandbox.mp4";
-import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const HeroSection = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div className="relative h-screen flex flex-col items-center justify-center gap-2 overflow-hidden">
       {/* Video Background */}
@@ -20,18 +25,30 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-20 max-w-7xl mx-auto px-6 flex flex-col justify-center items-center h-full text-white">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+        <h1
+          className="text-4xl md:text-6xl font-bold mb-4 leading-tight"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
           Color your Ideas with your
         </h1>
 
-        <p className="text-lg md:text-2xl mb-6 max-w-2xl ">
+        <p
+          className="text-lg md:text-2xl mb-6 max-w-2xl "
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
           Next Investor or Co-Founder
         </p>
-        <p className="text-lg md:text-2xl mb-6 max-w-2xl ">
+        <p
+          className="text-lg md:text-2xl mb-6 max-w-2xl "
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
           2 Investors Invested in 3 Startups
         </p>
 
-        <div className="flex gap-5">
+        <div className="flex gap-5" data-aos="fade-up" data-aos-duration="1000">
           <button className="rounded-xl bg-gradient-to-t from-[#2816CA] to-[#B51AEE] px-6 py-3 text-xl tracking-tight text-white shadow-[inset_0_0.15rem_0_#B51AEE,inset_0_-0.12rem_0_#2816CA] max-lg:px-4 max-lg:py-3 max-lg:text-sm max-sm:rounded-lg max-sm:px-4 max-sm:py-2 max-sm:text-sm">
             Pitch Your Idea
           </button>

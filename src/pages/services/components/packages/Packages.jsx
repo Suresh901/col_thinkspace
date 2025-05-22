@@ -50,7 +50,7 @@ const pricingPlans = [
 
 const Packages = () => {
   return (
-    <div className="sm:px-12 py-5 flex flex-col gap-5 max-w-6xl mx-auto my-10">
+    <div className="sm:px-12 py-5 flex flex-col gap-5 max-w-6xl mx-10 md:mx-auto my-10">
       <h1 className="font-bold text-2xl text-center my-5">Our Packages</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">

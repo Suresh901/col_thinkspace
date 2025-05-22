@@ -1,7 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 const apiUrl = import.meta.env.VITE_API_URL;
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const HeroSection = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const fetchAbout = async () => {
     const response = await fetch(`${apiUrl}/about-us`);
     if (!response.ok) {
@@ -32,12 +37,20 @@ const HeroSection = () => {
 
       <div className="sm:px-12 relative mt-10">
         <div className="px-6 flex flex-col justify-center gap-10">
-          <h1 className="text-2xl md:text-4xl font-bold text-center">
+          <h1
+            className="text-2xl md:text-4xl font-bold text-center"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
             Learn More About Us
           </h1>
 
           <div className="flex flex-col lg:flex-row">
-            <div className="lg:w-1/2 flex flex-col gap-5">
+            <div
+              className="lg:w-1/2 flex flex-col gap-5"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+            >
               <h1 className="font-bold text-xl md:text-3xl">
                 Service Overview
               </h1>
@@ -60,7 +73,11 @@ const HeroSection = () => {
               </div>
             </div>
 
-            <div className="lg:w-1/2 md:px-6 pt-10 lg:pt-0 flex items-center">
+            <div
+              className="lg:w-1/2 md:px-6 pt-10 lg:pt-0 flex items-center"
+              data-aos="fade-left"
+              data-aos-duration="1000"
+            >
               <img
                 src="https://colthinkspace.com/_app/immutable/assets/firmbee-com-gcsNOsPEXfs-unsplash.Dt_L6CNf.jpg"
                 alt="Team working"

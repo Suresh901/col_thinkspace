@@ -1,5 +1,8 @@
 import React from "react";
 import QuestionAccordion from "../accordion/QuestionAccordion";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Questions = ({
   title,
@@ -10,8 +13,15 @@ const Questions = ({
   title5,
   title6,
 }) => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
-    <div className="flex flex-col lg:flex-row justify-center py-10 md:px-12 px-6">
+    <div
+      className="flex flex-col lg:flex-row justify-center py-10 md:px-12 px-6"
+      data-aos="fade-right"
+      data-aos-duration="2000"
+    >
       <div className="lg:w-1/3 pb-5 md:px-6">
         <div className="sticky top-24 flex flex-col gap-2">
           <div className="font-bold text-2xl md:text-3xl lg:text-4xl flex flex-col gap-5">
@@ -42,7 +52,10 @@ const Questions = ({
         </div>
       </div>
 
-      <div className="w-full md:px-6 break-words">
+      <div
+        className="w-full md:px-6 break-words"
+       
+      >
         <QuestionAccordion />
       </div>
     </div>

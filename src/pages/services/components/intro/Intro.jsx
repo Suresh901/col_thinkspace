@@ -18,7 +18,7 @@ const Intro = ({ filteredService }) => {
         }}
       ></div>
 
-      <div className="mx-12">
+      <div className="md:mx-12">
         {/* Breadcrumb */}
         <div className="px-6 sm:px-12 mt-6 text-sm sm:text-base font-medium text-gray-600 space-x-1">
           <Link to="/" className="hover:underline cursor-pointer">

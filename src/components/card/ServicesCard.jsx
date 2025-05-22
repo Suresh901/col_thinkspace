@@ -120,26 +120,26 @@ const ServicesCard = () => {
       {datas.map((data, index) => (
         <Link key={index} to={`/services/${data.heading}`}>
           <div
-            className="bg-white min-h-[400px] h-full border border-gray-400 p-6 rounded-2xl 
+            className="bg-white  h-full border border-gray-400 p-6 rounded-2xl 
               shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 
               flex flex-col"
           >
             {/* Header section */}
-            <div className="flex flex-col items-start gap-4">
-              <div className="rounded-full w-20 h-20 overflow-hidden border-2 border-gray-300">
+            <div className="flex items-center gap-5">
+              <div className="w-14 h-14 overflow-hidden border-2 border-gray-300 flex-shrink-0 ">
                 <img
                   src={data.image}
                   alt={data.heading}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h2 className="text-lg font-semibold text-center text-gray-800">
+              <h2 className="text-md md:text-lg font-semibold text-gray-800 text-left">
                 {data.heading}
               </h2>
             </div>
 
             {/* Tasks list */}
-            <div className="flex flex-wrap gap-2 mt-4">
+            {/* <div className="flex flex-wrap gap-2 mt-4">
               {data.tasks &&
                 Object.values(data.tasks).map((task, idx) => (
                   <span
@@ -149,7 +149,7 @@ const ServicesCard = () => {
                     {task}
                   </span>
                 ))}
-            </div>
+            </div> */}
           </div>
         </Link>
       ))}

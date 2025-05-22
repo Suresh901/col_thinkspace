@@ -1,4 +1,6 @@
-import React from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const contactInfo = [
   {
@@ -19,6 +21,9 @@ const contactInfo = [
 ];
 
 const ContactCard = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div className="px-6 md:px-12 py-6 md:py-12 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:px-20">
@@ -26,6 +31,8 @@ const ContactCard = () => {
           <div
             key={index}
             className="border bg-white p-10 lg:p-20 flex flex-col items-center justify-center text-center shadow-md rounded-lg"
+            data-aos="fade-up"
+            data-aos-duration="1000"
           >
             {info.img && (
               <img

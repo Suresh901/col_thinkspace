@@ -35,7 +35,7 @@ const offers = [
 
 const Offer = () => {
   return (
-    <div className="py-10 flex flex-col xl:flex-row gap-10 my-10 mx-12 px-10">
+    <div className="py-10 flex flex-col xl:flex-row gap-10 my-10 md:mx-12 px-10">
       <div className="xl:w-1/2 flex flex-col gap-5">
         <h1 className="font-bold text-3xl"> What can we offer?</h1>
         <p className="text-md md:text-lg leading-relaxed">
@@ -45,13 +45,20 @@ const Offer = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {offers.map((item) => {
+        {offers.map((item, index) => {
           return (
-            <div className=" flex items-center justify-center gap-10 border bg-white p-5 rounded-xl">
-              <div>
-                <img src={item.image} alt="img" className="w-14 h-10" />
+            <div
+              key={index}
+              className="flex items-center justify-center gap-10 border bg-white p-5 rounded-xl"
+            >
+              <div className="flex-shrink-0">
+                <img
+                  src={item.image}
+                  alt="img"
+                  className="w-14 h-10 object-contain"
+                />
               </div>
-              <div className=" ">
+              <div>
                 <h1 className="font-bold">{item.title}</h1>
                 <p>{item.description}</p>
               </div>

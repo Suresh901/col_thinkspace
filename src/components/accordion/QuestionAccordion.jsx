@@ -66,10 +66,20 @@ const faqAccordion = [
     value: "item-10",
   },
 ];
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const QuestionAccordion = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
-    <div className="text-sm sm:text-md md:text-lg">
+    <div
+      className="text-sm sm:text-md md:text-lg"
+      data-aos="fade-left"
+      data-aos-duration="2000"
+    >
       <Accordion type="single" collapsible className="w-full">
         {faqAccordion.map((item, index) => (
           <AccordionItem value={item.value}>

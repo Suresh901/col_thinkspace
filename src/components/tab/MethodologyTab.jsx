@@ -15,6 +15,9 @@ import {
 } from "react-icons/lu";
 import { ScrollArea, ScrollBar } from "../../scrollarea/ScrollArea";
 import image1 from "../../assets/image/item1.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const tasks = [
   {
@@ -94,9 +97,12 @@ const tasks = [
 ];
 
 export function MethodologyTab() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <Tabs defaultValue="drives" className="flex flex-col w-full gap-5 mb-10 ">
-      <div className="px-6">
+      <div className="px-6" data-aos="fade-right" data-aos-duration="2000">
         <ScrollArea className="overflow-x-auto">
           <TabsList className="flex gap-5 whitespace-nowrap">
             {tasks.map((task, index) => (
@@ -126,7 +132,11 @@ export function MethodologyTab() {
           >
             <Card className="flex flex-col lg:flex-row justify-center">
               <CardContent className="w-full lg:w-1/2 2xl:w-1/3 flex items-center justify-center">
-                <div className="w-[99%]] h-[300px] sm:w-[500px] sm:h-[500px] flex items-center justify-center rounded-3xl border">
+                <div
+                  className="w-[99%]] h-[300px] sm:w-[500px] sm:h-[500px] flex items-center justify-center rounded-3xl border"
+                  data-aos="fade-right"
+                  data-aos-duration="2000"
+                >
                   <img
                     src={task.image}
                     alt={task.heading}
@@ -136,7 +146,11 @@ export function MethodologyTab() {
               </CardContent>
 
               <CardHeader className="w-full lg:w-1/2">
-                <div className="flex flex-col gap-5 md:px-12 lg:px-0">
+                <div
+                  className="flex flex-col gap-5 md:px-12 lg:px-0"
+                  data-aos="fade-left"
+                  data-aos-duration="2000"
+                >
                   <div className="flex items-center gap-3">
                     <div className="text-primary">{task.logo}</div>
                     <CardTitle className="font-bold text-lg md:text-xl">

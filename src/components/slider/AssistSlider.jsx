@@ -46,14 +46,15 @@ const AssistSlider = () => {
   const settings = {
     infinite: true,
     autoplay: true,
-    speed: 500,
-    autoplaySpeed: 4000,
+    speed: 2000,
+    autoplaySpeed: 2000,
     pauseOnHover: true,
     arrows: false,
     slidesToScroll: 1,
     slidesToShow: 4,
     swipeToSlide: true,
     touchMove: true,
+    cssEase: "linear",
     responsive: [
       {
         breakpoint: 1280,
@@ -80,7 +81,7 @@ const AssistSlider = () => {
 
   return (
     <div
-      className="relative max-w-7xl mx-auto overflow-hidden my-10"
+      className="relative max-w-8xl mx-auto overflow-hidden my-10 p-5 md:p-10"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -103,20 +104,20 @@ const AssistSlider = () => {
 
       <div
         className={`flex justify-between items-center absolute top-1/2 w-full px-4 transform -translate-y-1/2 transition-opacity duration-300 ${
-          hovered ? "opacity-100" : "opacity-30"
+          hovered ? "opacity-100" : "opacity-20"
         }`}
       >
         <button
           onClick={handlePrevClick}
-          className="p-2 bg-white/80 hover:bg-white rounded-full shadow-lg absolute left-0 transition-all"
+          className="p-2 bg-white/80 hover:bg-white rounded-full shadow-lg absolute -left-5 md:-left-10 transition-all"
         >
-          <FaAngleLeft className="h-6 w-6 sm:h-8 sm:w-8 text-gray-800" />
+          <FaAngleLeft className="h-4 w-4 sm:h-8 sm:w-8 text-gray-800" />
         </button>
         <button
           onClick={handleNextClick}
-          className="p-2 bg-white/80 hover:bg-white rounded-full shadow-lg absolute right-0 transition-all"
+          className="p-2 bg-white/80 hover:bg-white rounded-full shadow-lg absolute right-5 md:right-10 transition-all"
         >
-          <FaAngleRight className="h-6 w-6 sm:h-8 sm:w-8 text-gray-800" />
+          <FaAngleRight className="h-4 w-4 sm:h-8 sm:w-8 text-gray-800" />
         </button>
       </div>
     </div>

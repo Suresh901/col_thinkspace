@@ -1,5 +1,8 @@
 import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const industries = [
   { name: "Advertising Agencies", icon: <IoIosArrowForward /> },
@@ -14,6 +17,9 @@ const industries = [
 ];
 
 const Serve = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div
       style={{
@@ -25,6 +31,8 @@ const Serve = () => {
         backgroundPosition: "center",
       }}
       className="bg-fixed py-20 text-white my-10"
+      data-aos="fade-up"
+      data-aos-duration="1000"
     >
       <div className="flex flex-col  items-center gap-5">
         <h1 className="text-xl md:text-2xl font-bold">Who We Serve</h1>

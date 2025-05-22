@@ -1,18 +1,38 @@
 import React from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Stories = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div className="md:px-12 flex flex-col items-center justify-center my-20">
-      <h1 className="font-bold text-3xl text-center lg:mb-10">Our Stories</h1>
+      <h1
+        className="font-bold text-3xl text-center lg:mb-10"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        Our Stories
+      </h1>
       <div className="flex flex-col px-6 lg:flex-row gap-10 ">
-        <div className="lg:w-1/2 md:px-6 pt-10 lg:pt-0 flex items-center">
+        <div
+          className="lg:w-1/2 md:px-6 pt-10 lg:pt-0 flex items-center"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+        >
           <img
             src="https://images.ctfassets.net/pdf29us7flmy/4dRKN4OCnUTH8NFn0hfbd6/0e2a8ed7351b0f34e0ae72a2e39e15cf/GettyImages-764798619_optimized__1_.jpg?w=720&q=100&fm=jpg"
             alt=""
             className="rounded-xl"
           />
         </div>
-        <div className="lg:w-1/2 ">
+        <div
+          className="lg:w-1/2 "
+          data-aos="fade-left"
+          data-aos-duration="1000"
+        >
           <p className="text-md md:text-lg leading-relaxed lg:pl-10 text-justify">
             What began as a bold vision shared by three determined individuals
             quickly turned into a movement that would redefine IT solutions in

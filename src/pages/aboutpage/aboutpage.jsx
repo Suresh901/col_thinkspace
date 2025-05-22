@@ -1,7 +1,6 @@
 import Questions from "../../components/questions/Questions";
 import Request from "../../components/request/Request";
 import HeroSection from "./components/HeroSection";
-import Expertise from "./components/expertise/Expertise";
 import Project from "./components/projects/project";
 import ProjectSection from "./components/projectsection/ProjectSection";
 import Stories from "./components/stories/Stories";

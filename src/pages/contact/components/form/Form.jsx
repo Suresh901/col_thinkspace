@@ -1,7 +1,12 @@
-import React from "react";
 import { useFormik } from "formik";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Form = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -16,7 +21,11 @@ const Form = () => {
   });
   return (
     <form onSubmit={formik.handleSubmit}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        data-aos="fade-left"
+        data-aos-duration="3000"
+      >
         <input
           id="firstName"
           name="firstName"
