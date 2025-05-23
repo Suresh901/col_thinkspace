@@ -102,7 +102,12 @@ const Basic = ({
         </div>
         <button
           type="submit"
-          className="p-4 border-2 rounded-md mt-2 w-full bg-[#172554] text-white font-semibold cursor-pointer disabled:opacity-50"
+          className={`  p-4 border-2 rounded-md mt-2 w-full bg-[#172554] text-white font-semibold cursor-pointer disabled:opacity-50
+                  ${
+                    !isValid || !dirty
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-blue-600 cursor-pointer"
+                  }`}
           onClick={handleDownloadPdf}
           disabled={!(isValid && dirty)}
         >

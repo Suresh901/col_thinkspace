@@ -46,7 +46,7 @@ const Navbar = () => {
           : "relative w-full"
       } transition duration-300 ${
         isTransparentPage ? "bg-transparent" : "bg-[#f7f7f7]"
-      } border-b`}
+      } `}
     >
       <div className="flex justify-between items-center py-4 px-4 md:px-12 mx-auto max-w-[1500px]">
         {/* Logo Section */}

@@ -10,12 +10,12 @@ const contactInfo = [
   },
   {
     title: "Email Address",
-    value: "colthinkspace@gmail.com",
+    value: "thinkspacecol@gmail.com",
     img: "https://media.istockphoto.com/id/1255984663/vector/white-mail-and-e-mail-icon-isolated-with-long-shadow-envelope-symbol-e-mail-email-message.jpg?s=612x612&w=0&k=20&c=eINb2ZxtuiQztcAXRNCO7zLgBhnqiwTOuksGbJmaxgI=", // Optional placeholder
   },
   {
     title: "Contact Number",
-    value: "1234567890",
+    value: "9705208005",
     img: "https://cdn-icons-png.flaticon.com/512/8643/8643765.png",
   },
 ];

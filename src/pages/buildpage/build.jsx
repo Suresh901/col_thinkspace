@@ -5,9 +5,10 @@ import DetailandQr from "./components/form/DetailandQr";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import Request from "../../components/request/Request";
+import toast from "react-hot-toast";
 const apiUrl = import.meta.env.VITE_API_URL;
 
-const build = () => {
+const Build = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -22,10 +23,9 @@ const build = () => {
   const printRef = React.useRef(null);
 
   const handleDownloadPdf = async () => {
-    console.log("button clicked");
     const element = printRef.current;
     if (!element) {
-      console.error("Print element not found");
+      toast.error("Printable area not found.");
       return;
     }
 
@@ -45,21 +45,16 @@ const build = () => {
         hotfixes: ["px_scaling"],
       });
 
-      pdf.addImage(
-        canvas.toDataURL("image/png", 1.0),
-        "PNG",
-        0,
-        0,
-        a4Width,
-        a4Height
-      );
-
+      pdf.addImage(imgData, "PNG", 0, 0, a4Width, a4Height);
       pdf.save("Business_Card.pdf");
+
+      toast.success("PDF generated and downloaded successfully!");
     } catch (error) {
       console.error("PDF generation failed:", error);
-      alert("Failed to generate PDF. Please check console for details.");
+      toast.error("Failed to generate PDF. Please try again.");
     }
   };
+
   return (
     <>
       <div className="flex flex-col lg:flex-row md:px-12 py-10 px-6 mb-10 relative">
@@ -74,7 +69,7 @@ const build = () => {
               address: "",
               // logo: null,
             }}
-            onSubmit={async (values) => {
+            onSubmit={async (values, { resetForm }) => {
               try {
                 const response = await fetch(`${apiUrl}/build-with-us/store`, {
                   method: "POST",
@@ -85,12 +80,22 @@ const build = () => {
                 });
 
                 const data = await response.json();
-
                 if (!response.ok) {
                   throw new Error(data.message || "Something went wrong");
                 }
 
-                console.log("Success", data);
+                resetForm();
+                setForm({
+                  name: "",
+                  email: "",
+                  role: "",
+                  phone: "",
+                  website: "",
+                  address: "",
+                });
+                setSelectedFile([]);
+                // console.log(form);
+                // console.log("Success", data);
               } catch (error) {
                 console.error("Error", error.message);
               }
@@ -111,10 +116,12 @@ const build = () => {
                 errors.role = "Business role is required";
               }
               if (!values.phone) {
-                errors.phone = "phone number is required";
-              } else if (!/^\+?[0-9]{7,15}$/.test(values.phone)) {
-                errors.phone = "Invalid phone number format";
+                errors.phone = "Phone number is required";
+              } else if (!/^(98|97)[0-9]{8}$/.test(values.phone)) {
+                errors.phone =
+                  "Phone number must start with 98 or 97 and be 10 digits";
               }
+
               if (!values.website) {
                 errors.website = "Website is required";
               } else if (
@@ -170,4 +177,4 @@ const build = () => {
   );
 };
 
-export default build;
+export default Build;

@@ -103,7 +103,7 @@ const ProjectSection = () => {
       >
         Our Projects
       </h1>
-      <DataTab classname1="flex" datas={projects} />
+      <DataTab datas={projects} />
     </div>
   );
 };

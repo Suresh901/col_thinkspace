@@ -16,10 +16,14 @@ export function DataTab({ datas }) {
   useEffect(() => {
     AOS.init();
   }, []);
+  const defaultTab = datas[0]?.values;
   return (
-    <Tabs defaultValue="drives" className="flex flex-col w-full gap-5 mb-10 ">
+    <Tabs
+      defaultValue={defaultTab}
+      className="flex flex-col w-full gap-5 mb-10 "
+    >
       <div
-        className="px-6 max-w-7xl mx-auto"
+        className="px-6 w-full max-w-7xl mx-auto"
         data-aos="fade-right"
         data-aos-duration="2000"
       >

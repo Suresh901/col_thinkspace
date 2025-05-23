@@ -6,6 +6,7 @@ import { BsWhatsapp } from "react-icons/bs";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const FormSection = () => {
   useEffect(() => {
@@ -30,15 +31,35 @@ const FormSection = () => {
             data-aos="fade-up"
             data-aos-duration="3000"
           >
-            <div className="p-3 bg-[#ededed] rounded-full">
-              <FaFacebook />
-            </div>
-            <div className="p-3 bg-[#ededed] rounded-full">
-              <BsInstagram />
-            </div>
-            <div className="p-3 bg-[#ededed] rounded-full">
-              <BsWhatsapp />
-            </div>
+            <Link
+              to="https://www.facebook.com/col.thinkspace#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="p-3 bg-[#ededed] rounded-full">
+                <FaFacebook />
+              </div>
+            </Link>
+
+            <Link
+              to="https://www.instagram.com/col.thinkspace/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="p-3 bg-[#ededed] rounded-full">
+                <BsInstagram />
+              </div>
+            </Link>
+
+            <Link
+              to="https://wa.me/9705208005"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="p-3 bg-[#ededed] rounded-full">
+                <BsWhatsapp />
+              </div>
+            </Link>
           </div>
         </div>
         <div className="w-full md:px-12">

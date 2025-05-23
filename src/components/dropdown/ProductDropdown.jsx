@@ -8,6 +8,16 @@ import {
   DropdownMenuTrigger,
 } from "../dropdown/DropdownMenu";
 import { IoIosArrowDown } from "react-icons/io";
+import { Link } from "react-router-dom";
+
+const productLinks = [
+  { name: "COL Global", path: "https://colglobal.org/" },
+  { name: "COL University", path: "https://uni.colglobal.org/" },
+  { name: "COL Learn", path: "https://learn.colglobal.org/" },
+  { name: "COL Jobs", path: "https://job.colglobal.org/" },
+  { name: "COL Euphoria", path: "https://www.euphoria.colglobal.org/" },
+  { name: "COL Nirvana", path: "https://colthinkspace.com/" },
+];
 
 export function ProductDropdown({ isAtTop, isTransparentPage }) {
   return (
@@ -35,24 +45,11 @@ export function ProductDropdown({ isAtTop, isTransparentPage }) {
       <DropdownMenuContent className="w-auto z-[10] bg-white px-4 py-2">
         <DropdownMenuSeparator />
         <DropdownMenuGroup className="flex flex-col px-2 text-start">
-          <a href="/col-global" target="_blank" rel="noopener noreferrer">
-            <DropdownMenuItem>COL Global</DropdownMenuItem>
-          </a>
-          <a href="/col-university" target="_blank" rel="noopener noreferrer">
-            <DropdownMenuItem>COL University</DropdownMenuItem>
-          </a>
-          <a href="/col-learn" target="_blank" rel="noopener noreferrer">
-            <DropdownMenuItem>COL Learn</DropdownMenuItem>
-          </a>
-          <a href="/col-jobs" target="_blank" rel="noopener noreferrer">
-            <DropdownMenuItem>COL Jobs</DropdownMenuItem>
-          </a>
-          <a href="/col-euphoria" target="_blank" rel="noopener noreferrer">
-            <DropdownMenuItem>COL Euphoria</DropdownMenuItem>
-          </a>
-          <a href="/col-nirvana" target="_blank" rel="noopener noreferrer">
-            <DropdownMenuItem>COL Nirvana</DropdownMenuItem>
-          </a>
+          {productLinks.map(({ name, path }) => (
+            <Link to={path} target="_blank" rel="noopener noreferrer">
+              <DropdownMenuItem>{name}</DropdownMenuItem>
+            </Link>
+          ))}
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
