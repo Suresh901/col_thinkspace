@@ -1,5 +1,10 @@
 import React from "react";
-import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaInstagram,
+  FaYoutube,
+} from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
@@ -7,22 +12,27 @@ const socialMediaLinks = [
   {
     name: "Facebook",
     icon: <FaFacebookF />,
-    url: "https://facebook.com",
+    url: "https://www.facebook.com/col.thinkspace#",
   },
   {
     name: "LinkedIn",
     icon: <FaLinkedinIn />,
-    url: "https://linkedin.com",
+    url: "https://www.linkedin.com/company/col-thinkspace/",
   },
   {
     name: "Instagram",
     icon: <FaInstagram />,
-    url: "https://instagram.com",
+    url: "https://www.instagram.com/col.thinkspace/",
   },
   {
     name: "TikTok",
     icon: <FaTiktok />,
-    url: "https://tiktok.com",
+    url: "https://www.tiktok.com/@colthinkspace.official?_t=ZS-8wagcf64OXA&_r=1",
+  },
+  {
+    name: "Youtube",
+    icon: <FaYoutube />,
+    url: "https://www.youtube.com/@COLThinkspace",
   },
 ];
 
@@ -40,17 +50,22 @@ const footerLinks = [
   {
     title: "Products",
     links: [
-      { name: "COL Global", path: "/products/col-global" },
-      { name: "COL University", path: "/products/col-university" },
-      { name: "COL Learn", path: "/products/col-learn" },
-      { name: "COL Jobs", path: "/products/col-jobs" },
-      { name: "COL Euphoria", path: "/products/col-euphoria" },
-      { name: "COL Nirvana", path: "/products/col-nirvana" },
+      { name: "COL Global", path: "https://colglobal.org/" },
+      { name: "COL University", path: "https://uni.colglobal.org/" },
+      { name: "COL Learn", path: "https://learn.colglobal.org/" },
+      { name: "COL Jobs", path: "https://job.colglobal.org/" },
+      { name: "COL Euphoria", path: "https://www.euphoria.colglobal.org/" },
+      { name: "COL Nirvana", path: "https://colthinkspace.com/" },
     ],
   },
 ];
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+    });
+  };
   return (
     <div className="bg-[#f3f4f5] py-12">
       <div className="flex flex-wrap justify-between px-12 max-md:flex-col max-md:gap-y-12 max-sm:px-4 max-w-7xl mx-auto">
@@ -73,8 +88,19 @@ const Footer = () => {
                 <li
                   key={link.name}
                   className="cursor-pointer hover:text-purple-600"
+                  onClick={scrollToTop}
                 >
-                  <Link to={link.path}>{link.name}</Link>
+                  {section.title === "Products" ? (
+                    <a
+                      href={link.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link to={link.path}>{link.name}</Link>
+                  )}
                 </li>
               ))}
             </ul>

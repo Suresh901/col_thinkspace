@@ -19,7 +19,7 @@ const Basic = ({
   }, []);
 
   return (
-    <div data-aos="fade-right" data-aos-duration="2000">
+    <div>
       <div className="mb-10">
         <h1 className="font-bold text-3xl">Create Your Card Business</h1>
         <h2>Please fill the form to generate your Business Card.</h2>

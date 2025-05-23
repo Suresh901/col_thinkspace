@@ -15,7 +15,7 @@ const build = () => {
     phone: "",
     website: "",
     address: "",
-    logo: "",
+    // logo: "",
   });
 
   const [selectedFile, setSelectedFile] = useState([]);
@@ -34,8 +34,9 @@ const build = () => {
       const a4Height = 842;
 
       const canvas = await html2canvas(element, {
-        scale: 2,
+        scale: 3,
       });
+      const imgData = canvas.toDataURL("image/png");
 
       const pdf = new jsPDF({
         orientation: a4Width > a4Height ? "landscape" : "portrait",

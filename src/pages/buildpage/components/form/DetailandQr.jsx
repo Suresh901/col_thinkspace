@@ -15,11 +15,7 @@ const DetailandQr = ({ form, selectedFile }) => {
     AOS.init();
   }, []);
   return (
-    <div
-      className="w-full h-full p-0 m-0 flex flex-col"
-      data-aos="fade-left"
-      data-aos-duration="2000"
-    >
+    <div className="w-full h-full p-0 m-0 flex flex-col">
       {/* Top section with user details */}
       <div
         style={{
@@ -108,6 +104,7 @@ const DetailandQr = ({ form, selectedFile }) => {
           value={`name=${form?.name} email=${form?.email} role=${form?.role} address=${form?.address} website=${form?.website} phone=${form?.phone}`}
           size={200}
           className="mt-5 mb-5 "
+          renderAs="svg"
         />
       </div>
     </div>

@@ -8,6 +8,7 @@ const ServicesComponent = () => {
   useEffect(() => {
     AOS.init();
   }, []);
+ 
   return (
     <div className="sm:px-6  my-10" data-aos="fade-up" data-aos-duration="2000">
       <h1 className="mb-5 text-center p-5 font-bold text-2xl lg:text-3xl">

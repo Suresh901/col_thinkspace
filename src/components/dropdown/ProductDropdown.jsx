@@ -5,11 +5,9 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "../dropdown/DropdownMenu";
 import { IoIosArrowDown } from "react-icons/io";
-import { Link } from "react-router-dom";
 
 export function ProductDropdown({ isAtTop, isTransparentPage }) {
   return (
@@ -17,7 +15,7 @@ export function ProductDropdown({ isAtTop, isTransparentPage }) {
       <DropdownMenuTrigger asChild>
         <button className="">
           <div
-            className={`border border-3 p-2 rounded-md md:flex items-center gap-2 cursor-pointer hidden   ${
+            className={`border border-3 p-2 rounded-md md:flex items-center gap-2 cursor-pointer hidden ${
               isAtTop ? "bg-white" : "bg-[#f6f6f6] shadow-md"
             } `}
           >
@@ -25,7 +23,7 @@ export function ProductDropdown({ isAtTop, isTransparentPage }) {
             <h1>Our Products</h1>
             <IoIosArrowDown />
           </div>
-          <div className=" p-2 rounded-md flex md:hidden items-center gap-2 text-2xl">
+          <div className="p-2 rounded-md flex md:hidden items-center gap-2 text-2xl">
             <BsGrid
               className={`text-2xl ${
                 isTransparentPage ? "text-white" : "text-black"
@@ -37,24 +35,24 @@ export function ProductDropdown({ isAtTop, isTransparentPage }) {
       <DropdownMenuContent className="w-auto z-[10] bg-white px-4 py-2">
         <DropdownMenuSeparator />
         <DropdownMenuGroup className="flex flex-col px-2 text-start">
-          <Link to="/col-global">
+          <a href="/col-global" target="_blank" rel="noopener noreferrer">
             <DropdownMenuItem>COL Global</DropdownMenuItem>
-          </Link>
-          <Link to="/col-university">
+          </a>
+          <a href="/col-university" target="_blank" rel="noopener noreferrer">
             <DropdownMenuItem>COL University</DropdownMenuItem>
-          </Link>
-          <Link to="/col-learn">
+          </a>
+          <a href="/col-learn" target="_blank" rel="noopener noreferrer">
             <DropdownMenuItem>COL Learn</DropdownMenuItem>
-          </Link>
-          <Link to="/col-jobs">
+          </a>
+          <a href="/col-jobs" target="_blank" rel="noopener noreferrer">
             <DropdownMenuItem>COL Jobs</DropdownMenuItem>
-          </Link>
-          <Link to="/col-euphoria">
+          </a>
+          <a href="/col-euphoria" target="_blank" rel="noopener noreferrer">
             <DropdownMenuItem>COL Euphoria</DropdownMenuItem>
-          </Link>
-          <Link to="/col-nirvana">
+          </a>
+          <a href="/col-nirvana" target="_blank" rel="noopener noreferrer">
             <DropdownMenuItem>COL Nirvana</DropdownMenuItem>
-          </Link>
+          </a>
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

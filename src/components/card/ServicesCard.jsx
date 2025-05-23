@@ -115,6 +115,11 @@ export const datas = [
 ];
 
 const ServicesCard = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+    });
+  };
   return (
     <>
       {datas.map((data, index) => (
@@ -123,6 +128,7 @@ const ServicesCard = () => {
             className="bg-white  h-full border border-gray-400 p-6 rounded-2xl 
               shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 
               flex flex-col"
+            onClick={scrollToTop}
           >
             {/* Header section */}
             <div className="flex items-center gap-5">
