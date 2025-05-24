@@ -16,7 +16,7 @@ const homepage = () => {
       <AssistSection />
       <Methodology />
       <PartnerSlider />
-      <Services />
+      {/* <Services /> */}
       <Questions
         title="F"
         title1="requently"

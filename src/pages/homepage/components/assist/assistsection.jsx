@@ -18,7 +18,7 @@ const assistsection = () => {
         data-aos-duration="2000"
       >
         <h1 className="font-bold text-xl sm:text-2xl lg:text-3xl">
-          Let’s Make It Happen Together
+          Our Services
         </h1>
         <p className="text-sm sm:text-md md:text-lg ">
           Get Expert Help, Smart Tool and Real Support That Work For You
